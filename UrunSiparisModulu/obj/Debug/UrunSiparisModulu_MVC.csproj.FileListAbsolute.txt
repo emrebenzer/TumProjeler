@@ -1,0 +1,2 @@
+E:\BENZER_YAZILIM_TUM_PROJELER\UrunSiparisModulu\obj\Debug\UrunSiparisModulu_MVC.csproj.AssemblyReference.cache
+E:\BENZER_YAZILIM_TUM_PROJELER\UrunSiparisModulu\obj\Debug\UrunSiparisModulu_MVC.csproj.CoreCompileInputs.cache

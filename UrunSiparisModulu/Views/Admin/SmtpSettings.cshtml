@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "SmtpSettings";
+    Layout = "~/Views/AdminShared/Master.cshtml";
+}
+<script>
+    $(document).ready(function () {
+
+        BilgileriBas();
+
+        $("#smtpDuzenle").click(function () {
+            var inputUserName = $("#inputUserName").val();
+            var inputPassword = $("#inputPassword").val();
+            var inputServer = $("#inputServer").val();
+            var inputPort = $("#inputPort").val();
+
+            if (inputUserName == "") {
+                alert("Lütfen kullanıcı adı giriniz");
+                return;
+            }
+            else if (inputPassword == "") {
+                alert("Lütfen password giriniz");
+                return;
+            }
+            else if (inputServer == "") {
+                alert("Lütfen server adresi giriniz.");
+                return;
+            }
+            else if (inputPort == "") {
+                alert("Lütfen port giriniz.");
+                return;
+            }
+
+
+            $.ajax({
+                url: '@Url.Action("SMTP_GUNCELLE","Admin")', //your server side script, //our data
+                type: 'POST',
+                async: false,
+                data: JSON.stringify({ inputUserName: inputUserName, inputPassword: inputPassword, inputServer: inputServer, inputPort: inputPort }),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data == true) {
+                        alert("Güncelle işlemi başarılı...");
+                        BilgileriBas();
+                    }
+                    else {
+                        alert("Kayıt işlemi başarısız...Lütfen tekrar deneyiniz.");
+                    }
+                }
+            });
+
+
+
+
+        });
+
+
+        $('#btnGosterGizle').click(function () {
+            $('#txt_kullanici_sifre').attr('type', 'password');
+            if ($('#inputPassword').hasClass('Gizli')) {
+                $('#inputPassword').attr('type', 'text');
+                $('#inputPassword').removeClass('Gizli');
+            }
+            else {
+                $('#inputPassword').attr('type', 'password');
+                $('#inputPassword').addClass('Gizli');
+            }
+        });
+
+
+    });
+
+
+    function BilgileriBas() {
+        $.ajax({
+            url: '@Url.Action("SMTP_BILGISI","Admin")', //your server side script, //our data
+            type: 'POST',
+            async: false,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $("#inputUserName").val(data.SMTPUser);
+                $("#inputPassword").val(data.SMTPPassword);
+
+                $("#inputServer").val(data.SMTPServer);
+                $("#inputPort").val(data.SMTPPort);
+            }
+        });
+
+
+    }
+
+
+</script>
+
+
+<h2>SmtpSettings</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="note note-info">
+            <p>Not: Aşağıdaki bilgiler sistemin mail göndermesi içindir. Lütfen dikkatlice doldurunuz. Aksi halde mail göndermeyebilir. </p>
+        </div>
+        <!-- Begin: life time stats -->
+        <div class="portlet light portlet-fit portlet-datatable bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings font-green"></i>
+                    <span class="caption-subject font-green sbold uppercase">SMTP Bilgileri </span>
+                </div>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body">
+
+
+                <div class="row" style="margin-top:10px">
+                    <div class="col-md-12">
+                        <div class="portlet box blue ">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-gift"></i>SMTP Bilgileri Düzenleme
+                                </div>
+                                <div class="actions">
+
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+
+                                <div class="form-group">
+                                    <label class="control-label">SMTP Kullanıcı Adı</label>
+                                    <input type="text" class="form-control" id="inputUserName" name="inputUserName" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label style="width:auto !important" class="control-label">SMTP Şifre ( <a id="btnGosterGizle" title="Göster/Gizle" style="width:4%;"><i class="fa fa-eye"></i> Göster</a> )</label>
+                                    <input type="password" class="form-control Gizli" id="inputPassword" name="inputPassword" autocomplete="off">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">SMTP Server</label>
+                                    <input type="text" class="form-control" id="inputServer" name="inputServer" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">SMTP Port</label>
+                                    <input type="number" class="form-control" id="inputPort" value="587" name="inputPort">
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="clearfix"></div>
+                                <div class="form-actions">
+                                    <button type="button" id="smtpDuzenle" class="btn red">Güncelle</button>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: life time stats -->
+</div>

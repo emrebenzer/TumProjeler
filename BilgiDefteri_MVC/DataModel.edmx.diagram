@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da86b8f2bb2d413fa1c4367db0693904" Name="Diagram1">
+        <EntityTypeShape EntityType="AVP_BILGI_DEFTERIModel.BilgiDefteri" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AVP_BILGI_DEFTERIModel.kullanici" Width="1.5" PointX="2.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Veriler">
+  <DataContextMoniker Name="/VerilerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e4756488-fb06-4a1c-8a1e-c37a564ea72b" absoluteBounds="7.5, 1.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/VerilerDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7bbc8db-72ed-4026-8baa-5ddfd96cf16c" absoluteBounds="7.515, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

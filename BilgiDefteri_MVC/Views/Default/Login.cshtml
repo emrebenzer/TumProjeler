@@ -1,0 +1,126 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/Login.js"></script>
+    <link href="../css/signin.css" rel="stylesheet" />
+    
+    <script>
+        $(function () {
+            $('#msg').removeClass();
+            $('#msg').addClass("login-msg").text('Giriş bilgilerinizi giriniz.');
+            $('#username').val('');
+            $('#password').val('');
+            $('.login-frame').fadeIn(500);
+            $('.login-box').animate({ 'top': '50px' }, 500);
+            $(document).on('click', '.close-login', function (e) {
+                $('.login-box').animate({ 'top': '-165px' }, 500);
+                $('.login-frame').fadeOut(500);
+                $('#username').val('');
+                $('#password').val('');
+                e.preventDefault();
+            });
+            $(document).on('click', '.login-btn', function (e) {
+                var username = $('#username').val();
+                var password = $('#password').val();
+                var _loginMsg = $('#msg');
+                if (username == '' || password == '') {
+                    _loginMsg.addClass("error").removeClass("success");
+                    _loginMsg.html("Tüm alanları doldurunuz");
+                    $('.login-box')
+                             .animate({ left: -25 }, 20)
+                             .animate({ left: 0 }, 60)
+                             .animate({ left: 25 }, 20)
+                             .animate({ left: 0 }, 60);
+                } else {
+                    
+                    var url = "/Default/Kullanici";
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {username: username, password: password},
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            if (response == true) {
+                                _loginMsg.addClass("success").removeClass("error");
+                                _loginMsg.html("Giriş başarılı!");
+                                $('.login-box').animate({ 'top': '-165px' }, 1500);
+                                $('.login-frame').fadeOut(1000);
+
+                                function getParamValuesByName(querystring) {
+                                    name = querystring.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+                                    var regexS = "[\\?&]" + name + "=([^&#]*)";
+                                    var regex = new RegExp(regexS);
+                                    var results = regex.exec(window.location.search);
+                                    if (results == null) {
+                                        return "../Default/Index";
+                                    }
+                                    else {
+                                        return decodeURIComponent(results[1].replace(/\+/g, " "));
+                                    }
+                                }
+
+
+                                var thisOne = getParamValuesByName('re')
+
+                                setTimeout(function () { window.location = thisOne; }, 1500);
+
+                            } else {
+                                _loginMsg.addClass("error").removeClass("success");
+                                _loginMsg.html("Kullanıcı adı veya şifre hatalı");
+                                $('.login-box')
+                                     .animate({ left: -25 }, 20)
+                                     .animate({ left: 0 }, 60)
+                                     .animate({ left: 25 }, 20)
+                                     .animate({ left: 0 }, 60);
+                            }
+                        },
+                        error: function (xmlHttpRequest, textStatus, errorThrown) {
+                            alert('Error');
+                        }
+                    });
+                }
+
+                e.preventDefault();
+            });
+        });
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+        <div class="login-frame">
+            <div class="login-box">
+                <div id="msg"></div>
+                <div class="form-group">
+                    <label class="form-label">Email:</label>
+                    <input type="text" id="username" class="form-control" placeholder="E-mail Adresi" />   
+                </div>        
+                <div class="form-group">
+                    <label class="form-label">Şifre:</label>
+                    <input type="password" name="password" class="form-control" id="password" value="" placeholder="Şifre" />
+                    
+                </div>
+                <div class="login-actions">
+                    <input type="button" id="btn_login" value="Giriş" class="btn login-btn" />
+                    
+
+                </div>
+            </div>
+        </div>
+    
+</body>
+</html>

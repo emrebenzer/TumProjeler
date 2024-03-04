@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Veriler">
+  <DataContextMoniker Name="/VerilerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fa599e7c-4c7d-4492-a274-c87e70474b0b" absoluteBounds="3.5, 1, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/VerilerDataContext/Ilceler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ac877bd-adbe-4541-bc85-0623238d7c36" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="27e6dbc2-da66-4408-893a-50c4842f8135" absoluteBounds="0.75, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/VerilerDataContext/Ulkeler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="358b0df2-3b5f-4371-a9d2-699374c5c4f3" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="40dc9655-050d-4e45-a1da-37df8d9b4623" absoluteBounds="0.75, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/VerilerDataContext/Sehirler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bbcd9390-1a29-4eb7-8528-43cfb3eae8e5" absoluteBounds="0.765, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="335068b8-c60a-42da-a717-8b5c4af3a793" absoluteBounds="6.25, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/VerilerDataContext/SemtMah" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ccb7045e-001c-4f64-8d9f-656a68972485" absoluteBounds="6.265, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.78929768880208); (3.5 : 1.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VerilerDataContext/Sehirler/Sehirler_Ilceler" />
+      <nodes>
+        <classShapeMoniker Id="40dc9655-050d-4e45-a1da-37df8d9b4623" />
+        <classShapeMoniker Id="fa599e7c-4c7d-4492-a274-c87e70474b0b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.78929768880208); (6.25 : 1.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VerilerDataContext/Ilceler/Ilceler_SemtMah" />
+      <nodes>
+        <classShapeMoniker Id="fa599e7c-4c7d-4492-a274-c87e70474b0b" />
+        <classShapeMoniker Id="335068b8-c60a-42da-a717-8b5c4af3a793" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="21a76d93-2e8a-4b74-aaaa-cb6e156bc129" absoluteBounds="4, 3.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/VerilerDataContext/ILMESAFESI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="38f2d2f7-8750-4562-8f1e-a5098b266266" absoluteBounds="4.015, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,297 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        //GOREVLER();
+        //GORUSMELER();
+        //SOHBETLER();
+        //GENEL();
+    });
+    function copleteTaskUst(id, control) {
+        $.ajax({
+            type: 'POST',
+            url: '/Home/CompleteTask',
+            data: JSON.stringify({ Id: id }),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                var curr = parseInt($('#YAPILACAK_IS_COUNT').html());
+                $('#YAPILACAK_IS_COUNT').html(curr - 1);
+                $(control).parent().parent().parent().hide(500);
+                alert('Görev Kapatıldı!');
+            },
+            error: function (ex) {
+                alert('Failed to retrieve states.' + ex);
+            }
+        });
+    }
+    function CompleteMeeting(id, control) {
+        $.ajax({
+            type: 'POST',
+            url: '/Home/CompleteMeeting',
+            data: JSON.stringify({ Id: id }),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                var curr = parseInt($('#GORUSME_COUNT').html());
+                $('#GORUSME_COUNT').html(curr - 1);
+                $(control).parent().parent().parent().hide(500);
+                alert('Görüşme Kapatıldı!');
+            },
+            error: function (ex) {
+                alert('Failed to retrieve states.' + ex);
+            }
+        });
+    }
+    function GOREVLER() {
+        $('#GOREVLER_UL').html("");
+        $.ajax({
+            url: '/Home/GOREVLER',
+            type: 'POST',
+            data: JSON.stringify({ ID: "0" }),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $.each(data, function (k, v) {
+                    $('#GOREVLER_UL').append('<li><a href="inbox.html?a=view"><span class="subject"><input type="checkbox" isId="' + v.ID + '" class="liChildust" value="1" name="test" /><span class="from">' + v.KATEGORI + '</span></span><span class="message">' + v.YAPILACAK_IS + '</span></a></li>');
+                });
+
+                $('.liChildust').click(function () {
+                    var checked = $(this).is(':checked');
+                    copleteTaskUst($(this).attr('isId'), $(this));
+                });
+            }
+        });
+    }
+    
+    function SOHBETLER() {
+        $('#MESAJ_UL').html("");
+        $.ajax({
+            url: '/Home/GetMessageList',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+
+                $.each(data, function (k, v) {
+                    $('#MESAJ_COUNT').html(data.length);
+                    $('#MESAJ_COUNT_P').html('Toplam ' + 0 + ' arama');
+                    
+                    var cari = '';
+                    var mesaj = '';
+                    var id = '';
+                    cari = v.CARI;
+                    mesaj = v.MESAJ;
+                    id = v.ID;
+                    var metot = "MesajiBas('" + cari + "','" + mesaj + "','" + id + "');";
+                    $('#MESAJ_UL').append('<li>' +
+								            '	<a data-toggle="modal" href="#buyukMesaj" onclick="'+metot+'">' +
+                                            '	    <span class="photo">'+
+								            '	        <img src="@Url.Content("~/IMG/")' + (v.RESIM == '' || v.RESIM == null || v.RESIM == undefined ? 'no-photo.png' : v.RESIM) + '" class="img-circle" alt="">' +
+								            '	    </span>'+
+								            '	    <span class="subject">'+
+								            '	        <span class="from">'+ v.CARI +'</span>'+
+								            '	        <span class="time"><img width="20" src="@Url.Content("~/IMG/")time.png" title="' + v.ZAMAN + '" /></span>' +
+								            '	    </span>'+
+								            '	    <span class="message">'+
+								            v.MESAJ +
+								            '       </span>'+
+                                            '	</a>'+
+								            '</li>');
+                });
+            }
+        });
+    }
+    function MesajlarTamami() {
+        $.ajax({
+            url: '/Home/GetMessageListTamami',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $("#maillerVeri").empty();
+                $("#kayitBilgisi").html("1-"+data.length+" of "+data.length+" ");
+                $.each(data, function (x, item) {
+                    if (item.OKUNDUMU == true) {
+                        var metot = "MesajiBas('" + item.CARI + "','" + item.MESAJ + "','" + item.ID + "');";
+                        $("#maillerVeri").append('<tr data-messageid="' + item.ID + '"> <td class="inbox-small-cells"> <div class="checker"><span> <input type="checkbox" class="mail-checkbox"></span></div> </td> <td class="inbox-small-cells"> <i class="fa fa-star"></i> </td> <td class="view-message hidden-xs">' + item.CARI + ' </td> <td class="view-message"><a data-toggle="modal" href="#buyukMesaj" onclick="' + metot + '">' + item.MESAJ + ' </a></td> <td class="view-message inbox-small-cells"></td> <td class="view-message text-right">' + item.ZAMAN + '</td> </tr>');
+                    }
+                    else {
+                        var metot = "MesajiBas('" + item.CARI + "','" + item.MESAJ + "','" + item.ID + "');";
+                        $("#maillerVeri").append('<tr class="unread" data-messageid="' + item.ID + '"> <td class="inbox-small-cells"> <div class="checker"><span> <input type="checkbox" class="mail-checkbox"></span></div> </td> <td class="inbox-small-cells"> <i class="fa fa-star inbox-started"></i> </td> <td class="view-message hidden-xs">' + item.CARI + ' </td> <td class="view-message "><a data-toggle="modal" href="#buyukMesaj" onclick="' + metot + '">' + item.MESAJ + ' </a></td> @*<td class="view-message inbox-small-cells"> <i class="fa fa-paperclip"></i> </td>*@ <td class="view-message inbox-small-cells"></td> <td class="view-message text-right">' + item.ZAMAN + ' </td> </tr>');
+                    }
+                })
+
+
+
+            }
+        });
+    }
+    function GORUSMELER() {
+        $('#GORUSME_UL').html("");
+        $.ajax({
+            url: '/Home/GetMeetingList',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $('#GORUSME_COUNT').html(data.length);
+                $.each(data, function (k, v) {
+                    //$('#GORUSME_COUNT').html(v.TOPLAM_GORUSME);
+                    //$('#GORUSME_COUNT_P').html('Toplam ' + v.TOPLAM_GORUSME + ' arama');
+                    var metot = "GoreviBas('" + v.ARAYAN + ' | ' + v.NUMARA + "','" + '( ' + v.KATEGORI + ' ) ' + v.NOT + '<br/>' + v.TARIH_SAAT + "','" + v.ID + "');";
+                    //$('#GORUSME_UL').append('<li><a style="margin-left: 0; padding:15px !important;"><span style="margin-left: 0; padding:0 5px !important;" class="subject"><input type="checkbox" isId="' + v.ID + '" class="liChildust2" value="1" name="test" /><span class="from">' + v.ARAYAN + '</span><span style="margin-left:5px;" class="label label-sm label-success">' + v.NUMARA + '</span></span><span style="margin-left: 0;" class="task-title-sp">(' + v.KATEGORI + ')</span><span style="margin-left: 0;" class="task-title-sp">' + v.NOT + '</span><span style="margin-left:5px;" class="label label-sm label-success">' + v.TARIH_SAAT + '</span></a></li>');
+                    $('#GORUSME_UL').append('<li>' +
+								            '	<a data-toggle="modal" href="#buyukGorev" onclick="' + metot + '">' +
+                                            '	    <span class="photo">' +
+								            '	        <img src="@Url.Content("~/IMG/")' + (v.RESIM == '' || v.RESIM == null || v.RESIM == undefined ? 'no-photo.png' : v.RESIM) + '" class="img-circle" alt="">' +
+								            '	    </span>' +
+								            '	    <span class="subject">' +
+								            '	        <span class="from">' + v.ARAYAN + '</span><span style="margin-left:5px;" class="label label-sm label-success">' + v.NUMARA + '</span>' +
+								            '	        <span class="time"><img width="20" src="@Url.Content("~/IMG/")time.png" title="' + v.KATEGORI + '" /></span>' +
+								            '	    </span>' +
+								            '	    <span class="message">' +
+								            '( ' + v.KATEGORI + ' ) ' + v.NOT + '<br/>' +
+								            '       </span>' + '<span style="margin-left:5px;" class="label label-sm label-success">' + v.TARIH_SAAT + '</span>' +
+                                            '	</a>' +
+								            '</li>');
+                });
+
+                $('.liChildust2').click(function () {
+                    var checked = $(this).is(':checked');
+                    CompleteMeeting($(this).attr('isId'), $(this));
+                });
+            }
+        });
+    }
+    function GENEL() {
+        $('#MESAJ_COUNT').html("");
+        $('#YAPILACAK_IS_COUNT').html("");
+        $('#YAPILACAK_IS_COUNT_P').html("");
+        $('#USER_NAME').html("");
+
+        $.ajax({
+            url: '/Home/USER_BILGI',
+            type: 'POST',
+            data: JSON.stringify({ ID: "0" }),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                
+                $('#YAPILACAK_IS_COUNT').html(data.YAPILACAK_IS_COUNT);
+                $('#YAPILACAK_IS_COUNT_P').html("Tamamlanmamış " + data.YAPILACAK_IS_COUNT + " Görev");
+                $('#USER_NAME').html(data.User.KULLANICI_ADI);
+                $('#USER_IMG').attr('src', '../../IMG/' + data.User.RESIM);
+            }
+        });
+    }
+</script>
+
+<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <i class="fa fa-comments"></i>
+        <span class="badge badge-default" id="MESAJ_COUNT"></span>
+    </a>
+    <ul class="dropdown-menu">
+        @*<li>
+            <p id="MESAJ_COUNT_P">
+            </p>
+        </li>*@
+        <li>
+            <ul id="MESAJ_UL" class="dropdown-menu-list scroller" style="height: 500px;"></ul>
+        </li>
+        <li class="external">
+                 <a href="@Url.Action("Mailler", "Home")" style="margin-top:-6px">Tümünü Göster <i class="m-icon-swapright"></i>
+                </a>
+        </li>
+    </ul>
+</li>
+@*<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <i class="fa fa-phone"></i>
+        <span class="badge badge-default" id="GORUSME_COUNT"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+            <p id="GORUSME_COUNT_P">
+            </p>
+        </li>
+        <li>
+            <ul id="GORUSME_UL" class="dropdown-menu-list scroller" style="height: 250px;"></ul>
+        </li>
+        <li class="external">
+                 <a href="@Url.Action("GORUSMELER", "Home")" style="margin-top:-6px">Tümünü Göster <i class="m-icon-swapright"></i>
+                </a>
+        </li>
+    </ul>
+</li>*@
+<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <i class="icon-calendar"></i>
+        <span class="badge badge-default" id="YAPILACAK_IS_COUNT"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+            <p id="YAPILACAK_IS_COUNT_P">
+            </p>
+        </li>
+        <li>
+            <ul class="dropdown-menu-list scroller" style="height: 250px;" id="GOREVLER_UL"></ul>
+        </li>
+        <li class="external">
+            <a href="inbox.html">
+                Tümünü Göster <i class="m-icon-swapright"></i>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="dropdown dropdown-user">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <img id="USER_IMG" alt="" class="img-circle" />
+        <span class="username username-hide-on-mobile" id="USER_NAME"></span>
+        <i class="fa fa-angle-down"></i>
+    </a>
+    <ul class="dropdown-menu">
+        @*      <li>
+                <a href="@Url.Action("Index", "Manager")">
+                    <i class="icon-user"></i>Çalışma Masam </a>
+            </li>
+            <li>
+                <a href="@Url.Action("MANAGER_PROFIL", "Manager")">
+                    <i class="icon-user"></i>Bilgilerim </a>
+            </li>
+            <li>
+                <a href="@Url.Action("AJANDA", "Manager")">
+                    <i class="icon-calendar"></i>Ajandam</a>
+            </li>
+            <li>
+                <a href="inbox.html">
+                    <i class="icon-envelope-open"></i>Belgelerim<span class="badge badge-danger">3 </span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("YAPILACAK", "Manager", new { id = 1 })">
+                    <i class="icon-rocket"></i>Görevlerim<span class="badge badge-success">7 </span>
+                </a>
+            </li>*@
+        <li class="divider"></li>
+        <li>
+            <a href="@Url.Action("Lock_Page", "Home")">
+                <i class="icon-lock"></i>Ekranı Kilitle
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("LogOff", "Home")">
+                <i class="icon-key"></i>Çıkış
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="dropdown dropdown-quick-sidebar-toggler">
+    <a href="javascript:;" class="dropdown-toggle">
+        <i class="icon-logout"></i>
+    </a>
+</li>
+
+
+
+
+

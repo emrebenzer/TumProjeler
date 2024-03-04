@@ -1,0 +1,307 @@
+﻿@{
+
+    var Title = ViewBag.Title;
+    Layout = "~/Views/AdminShared/Master.cshtml";
+}
+
+
+<script src="~/Content/plugins/select2/select2.min.js"></script>
+<link href="~/Content/plugins/select2/select2.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.printElement.min.js"></script>
+<style>
+    .productbox {
+        background-color: #ffffff;
+        padding: 10px;
+        margin-bottom: 10px;
+        -webkit-box-shadow: 0 8px 6px -6px #999;
+        -moz-box-shadow: 0 8px 6px -6px #999;
+        box-shadow: 0 8px 6px -6px #999;
+    }
+
+    .producttitle {
+        font-weight: bold;
+        padding: 5px 0 5px 0;
+    }
+
+    .productprice {
+        border-top: 1px solid #dadada;
+        padding-top: 5px;
+    }
+
+    .pricetext {
+        font-weight: bold;
+        font-size: 1.4em;
+    }
+</style>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        SahisDoldur();
+        //BilgileriDoldur(-1);
+
+        $("#drpBayiler").change(function () {
+            KisiBilgisiBas($("#drpBayiler").val());
+        });
+
+        $("#UrunTemizle").click(function () { YeniUserEkle(); });
+
+        $("#UrunSil").click(function () {
+
+            var ID = $("#hiddenUserID").val();
+            if (ID == "0" || ID == null) {
+                return;
+            }
+
+
+            var r = confirm("Şahısı silerseniz bir daha geri gelmez. Silmek istediğinizden emin misiniz?");
+            if (r == true) {
+                $.ajax({
+                    type: "POST",
+                    url: '@(Url.Action("SahisSil", "Admin"))',
+                    async: false,
+                    data: JSON.stringify({ id: ID }),
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data == true) {
+                            alert("Silme işlemi başarılı...");
+                            SahisDoldur();
+                            YeniUserEkle();
+                        }
+                        else {
+                            alert("Silme işlemi başarısız...Lütfen tekrar deneyiniz.");
+                        }
+                    },
+                    error: function (ddd) {
+                        alert("Silme işlemi başarısız...Lütfen tekrar deneyiniz.");
+                    }
+                });
+            }
+            else {
+
+            }
+
+
+        });
+
+        $('#btnGosterGizle').click(function () {
+            $('#txt_kullanici_sifre').attr('type', 'password');
+            if ($('#inputPassword').hasClass('Gizli')) {
+                $('#inputPassword').attr('type', 'text');
+                $('#inputPassword').removeClass('Gizli');
+            }
+            else {
+                $('#inputPassword').attr('type', 'password');
+                $('#inputPassword').addClass('Gizli');
+            }
+        });
+
+
+
+        $("#UrunKaydet").click(function () {
+            var inputName = $("#inputUserName").val();
+            var inputPassword = $("#inputPassword").val();
+
+            var inputIskonto = $("#inputIskonto").val();
+            var inputDescription = $("#inputDescription").val();
+            var inputYetki = $("#selectYetki").val();
+            var inputAktif = $("#selectAktif").val();
+            var hiddenUserID = $("#hiddenUserID").val();
+
+            if (inputName == "") {
+                alert("Lütfen kullanıcı adı giriniz");
+                return;
+            }
+            else if (inputPassword == "") {
+                alert("Lütfen şifre giriniz");
+                return;
+            }
+            else if (inputIskonto == "") {
+                alert("Lütfen stok miktarını giriniz.");
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("SAHIS_EKLE","Admin")', //your server side script, //our data
+                type: 'POST',
+                async: false,
+                data: JSON.stringify({ inputName: inputName, inputDescription: inputDescription, inputPassword: inputPassword, inputIskonto: inputIskonto, inputYetki: inputYetki, inputAktif: inputAktif, hiddenUserID: hiddenUserID }),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data == true) {
+                        alert("Kayıt işlemi başarılı...");
+                        SahisDoldur();
+                        YeniUserEkle();
+                    }
+                    else {
+                        alert("Kayıt işlemi başarısız...Lütfen tekrar deneyiniz.");
+                    }
+                }
+            });
+        });
+
+
+    });
+
+    function YeniUserEkle() {
+        $("#hiddenUserID").val(0);
+        $("#inputPassword").val("");
+        $("#selectYetki").val("0");
+        $("#selectAktif").val("1");
+        $("#inputIskonto").val("0");
+        $("#inputDescription").val("");
+        $("#UrunKaydet").html("Kaydet");
+    }
+
+    function SahisDoldur() {
+        $.ajax({
+            url: '@Url.Action("GetSahislarHepsi", "Admin")', //your server side script, //our data
+            type: 'POST',
+            async: false,
+            success: function (data) {
+
+                $("#drpBayiler").empty();
+                $("#drpBayiler").append('<option value="0">Seçiniz.</option>');
+                $.each(data, function (index, item) {
+                    $("#drpBayiler").append('<option value="' + item.ID + '">' + item.Text + '</option>');
+                });
+                $("#drpBayiler").select2();
+
+            },
+            error: function () {
+
+            }
+        });
+    }
+
+    function KisiBilgisiBas(id)
+    {
+        $.ajax({
+            url: '@Url.Action("SAHIS_BILGISI","Admin")', //your server side script, //our data
+            type: 'POST',
+            async: false,
+            data: JSON.stringify({ ID: id }),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+               
+                    
+                    $("#inputUserName").val(data.UserName);
+                    $("#inputPassword").val(data.Password);
+
+                    $("#inputIskonto").val(data.Iskonto);
+                    $("#inputDescription").val(data.Description);
+                    $("#selectYetki").val((data.Admin=="True" || data.Admin=="true" || data.Admin==true) ? 1 : 0);
+                    $("#selectAktif").val((data.Active == "True" || data.Active == "true" || data.Active == true) ? 1 : 0);
+                    $("#hiddenUserID").val(data.ID);     
+                
+            }
+        });
+
+
+    }
+
+
+</script>
+
+<h3 class="page-title" style="font-size: 20px">
+    <small>@Title.ToUpper()</small>
+</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="note note-info">
+            <p>Not: Aşağıdan şahıs ve bayi seçerek filtreleme yapabilirsiniz. </p>
+        </div>
+        <!-- Begin: life time stats -->
+        <div class="portlet light portlet-fit portlet-datatable bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings font-green"></i>
+                    <span class="caption-subject font-green sbold uppercase">Şahıs Bayi Düzenleme </span>
+                </div>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row" style="margin-bottom: 15px">
+                    <div class="col-md-2">Şahış/Bayi Seçin:</div>
+                    <div class="col-md-10">
+                        <select id="drpBayiler" class="form-control select2" style="width: 100%"></select></div>
+
+                </div>
+
+                <div class="row" style="margin-top:10px">
+                    <div class="col-md-12">
+                        <div class="portlet box blue ">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-gift"></i>Ürün Ekle/Düzenle
+                                </div>
+                                <div class="actions">
+                            <a href="javascript:;" class="btn btn-default btn-sm" onclick="YeniUserEkle();">
+                                <i class="fa fa-plus"></i>Yeni Şahıs/Bayi Ekle
+                            </a>
+                        </div>
+                            </div>
+                            <div class="portlet-body">
+
+                                <div class="form-group">
+                                    <label class="control-label">Kullanıcı Adı</label>
+                                    <input type="text" class="form-control" id="inputUserName" name="inputUserName" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label style="width:auto !important" class="control-label">Şifre ( <a id="btnGosterGizle" title="Göster/Gizle" style="width:4%;"><i class="fa fa-eye"></i> Göster</a> )</label>
+                                    <input type="password" class="form-control Gizli" id="inputPassword" name="inputPassword"  autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Yetki</label>
+                                    <select id="selectYetki" class="form-control">
+                                        <option value="0">Bayi</option>
+                                        <option value="1">Admin</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Üyelik Aktif Mi?</label>
+                                    <select id="selectAktif" class="form-control">
+                                        <option value="1">Aktif</option>
+                                        <option value="0">Pasif</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">İskonto Oranı</label>
+                                    <input type="text" class="form-control" id="inputIskonto" value="0" name="inputIskonto">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Açıklama</label>
+                                    <textarea class="form-control" id="inputDescription"  name="inputDescription" rows="3"></textarea>
+                                </div>
+                                <div class="clearfix"></div>
+                                <input type="hidden" id="hiddenUserID" name="hiddenUserID" value="0" />
+                            
+                            <div class="clearfix"></div>
+                            <div class="form-actions">
+                                <button type="button" id="UrunTemizle" class="btn default">Temizle</button>
+                                <button type="button" id="UrunKaydet" class="btn green">Kaydet</button>
+                                @*<button type="button" id="UrunSil" class="btn red">Sil</button>*@
+                            </div>
+</div>
+                            <div class="clearfix"></div>
+                        </div>
+<div class="clearfix"></div>
+                    </div>
+<div class="clearfix"></div>
+                </div>
+
+
+
+
+
+            </div>
+            </div>
+        </div>
+        <!-- End: life time stats -->
+    </div>
+
+

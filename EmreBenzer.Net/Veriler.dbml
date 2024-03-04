@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB141111123024" Class="VerilerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=89.19.29.253;Initial Catalog=DB141111123024;User ID=USR141111123024" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB141111123024ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Ilceler" Member="Ilcelers">
+    <Type Name="Ilceler">
+      <Column Name="ilceId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SehirId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IlceAdi" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="SehirAdi" Type="System.String" DbType="NVarChar(55) NOT NULL" CanBeNull="false" />
+      <Association Name="Ilceler_SemtMah" Member="SemtMahs" ThisKey="ilceId" OtherKey="ilceId" Type="SemtMah" />
+      <Association Name="Sehirler_Ilceler" Member="Sehirler" ThisKey="SehirId" OtherKey="SehirId" Type="Sehirler" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ulkeler" Member="Ulkelers">
+    <Type Name="Ulkeler">
+      <Column Name="UlkeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IkiliKod" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="UcluKod" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="UlkeAdi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TelKodu" Type="System.String" DbType="NVarChar(6) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sehirler" Member="Sehirlers">
+    <Type Name="Sehirler">
+      <Column Name="SehirId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SehirAdi" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PlakaNo" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="TelefonKodu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RowNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Sehirler_Ilceler" Member="Ilcelers" ThisKey="SehirId" OtherKey="SehirId" Type="Ilceler" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SemtMah" Member="SemtMahs">
+    <Type Name="SemtMah">
+      <Column Name="SemtMahId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SemtAdi" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="MahalleAdi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PostaKodu" Type="System.String" DbType="NVarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="ilceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Ilceler_SemtMah" Member="Ilceler" ThisKey="ilceId" OtherKey="ilceId" Type="Ilceler" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ILMESAFESI" Member="ILMESAFESIs">
+    <Type Name="ILMESAFESI">
+      <Column Name="id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ilid1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ilid2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mesafe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

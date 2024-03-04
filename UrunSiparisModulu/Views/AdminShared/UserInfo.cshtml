@@ -1,0 +1,102 @@
+﻿
+<script type="text/javascript">
+    $(document).ready(function () {
+        //GOREVLER();
+        //GORUSMELER();
+        //SOHBETLER();
+        //GENEL();
+    });
+</script>
+
+
+@*<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <i class="fa fa-phone"></i>
+        <span class="badge badge-default" id="GORUSME_COUNT"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+            <p id="GORUSME_COUNT_P">
+            </p>
+        </li>
+        <li>
+            <ul id="GORUSME_UL" class="dropdown-menu-list scroller" style="height: 250px;"></ul>
+        </li>
+        <li class="external">
+                 <a href="@Url.Action("GORUSMELER", "Home")" style="margin-top:-6px">Tümünü Göster <i class="m-icon-swapright"></i>
+                </a>
+        </li>
+    </ul>
+</li>*@
+@*<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <i class="icon-calendar"></i>
+        <span class="badge badge-default" id="YAPILACAK_IS_COUNT"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+            <p id="YAPILACAK_IS_COUNT_P">
+            </p>
+        </li>
+        <li>
+            <ul class="dropdown-menu-list scroller" style="height: 250px;" id="GOREVLER_UL"></ul>
+        </li>
+        <li class="external">
+            <a href="inbox.html">
+                Tümünü Göster <i class="m-icon-swapright"></i>
+            </a>
+        </li>
+    </ul>
+</li>*@
+<li class="dropdown dropdown-user">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        @*<img id="USER_IMG" alt="" class="img-circle" />*@
+        <span class="username username-hide-on-mobile" id="USER_NAME">@(((User)System.Web.HttpContext.Current.Session["User"]).UserName.ToString())</span>
+        <i class="fa fa-angle-down"></i>
+    </a>
+    <ul class="dropdown-menu">
+        @*      <li>
+                <a href="@Url.Action("Index", "Manager")">
+                    <i class="icon-user"></i>Çalışma Masam </a>
+            </li>
+            <li>
+                <a href="@Url.Action("MANAGER_PROFIL", "Manager")">
+                    <i class="icon-user"></i>Bilgilerim </a>
+            </li>
+            <li>
+                <a href="@Url.Action("AJANDA", "Manager")">
+                    <i class="icon-calendar"></i>Ajandam</a>
+            </li>
+            <li>
+                <a href="inbox.html">
+                    <i class="icon-envelope-open"></i>Belgelerim<span class="badge badge-danger">3 </span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("YAPILACAK", "Manager", new { id = 1 })">
+                    <i class="icon-rocket"></i>Görevlerim<span class="badge badge-success">7 </span>
+                </a>
+            </li>*@
+        <li class="divider"></li>
+        @*<li>
+            <a href="@Url.Action("Lock_Page", "Home")">
+                <i class="icon-lock"></i>Ekranı Kilitle
+            </a>
+        </li>*@
+        <li>
+            <a href="@Url.Action("LogOff", "Admin")">
+                <i class="icon-key"></i>Çıkış
+            </a>
+        </li>
+    </ul>
+</li>
+@*<li class="dropdown dropdown-quick-sidebar-toggler">
+    <a href="javascript:;" class="dropdown-toggle">
+        <i class="icon-logout"></i>
+    </a>
+</li>*@
+
+
+
+
+

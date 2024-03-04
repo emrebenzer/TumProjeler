@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Veriler_DBMODEL.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GRAFIK_EGRI_DEGERLERI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="POMPA_ID" Type="int" />
+          <Property Name="GRAFIK_ID" Type="int" />
+          <Property Name="DEGER_1" Type="decimal" Precision="18" Scale="10" />
+          <Property Name="DEGER_2" Type="decimal" Precision="18" Scale="10" />
+          <Property Name="EGRI_TIPI" Type="int" />
+          <Property Name="TIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="DEGER_1_BIRIM" Type="nvarchar" MaxLength="10" />
+          <Property Name="DEGER_2_BIRIM" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'sesinoks.dbo.GRAFIKLER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GRAFIKLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GRAFIK_ADI" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="POMPALAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="POMPA_ADI" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAX_Q" Type="decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityContainer Name="Veriler_DBMODELStoreContainer">
+          <EntitySet Name="GRAFIK_EGRI_DEGERLERI" EntityType="Self.GRAFIK_EGRI_DEGERLERI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POMPALAR" EntityType="Self.POMPALAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRAFIKLER" EntityType="Self.GRAFIKLER" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GRAFIKLER].[ID] AS [ID], 
+    [GRAFIKLER].[GRAFIK_ADI] AS [GRAFIK_ADI]
+    FROM [dbo].[GRAFIKLER] AS [GRAFIKLER]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Veriler_DBMODEL" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GRAFIKLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GRAFIK_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="POMPALAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="POMPA_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAX_Q" Type="Decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityContainer Name="VerilerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GRAFIKLER" EntityType="Self.GRAFIKLER" />
+          <EntitySet Name="POMPALAR" EntityType="Self.POMPALAR" />
+          <EntitySet Name="GRAFIK_EGRI_DEGERLERI" EntityType="Veriler_DBMODEL.GRAFIK_EGRI_DEGERLERI" />
+        </EntityContainer>
+        <EntityType Name="GRAFIK_EGRI_DEGERLERI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GRAFIK_ID" Type="Int32" />
+          <Property Name="DEGER_1" Type="Decimal" Precision="18" Scale="10" />
+          <Property Name="DEGER_2" Type="Decimal" Precision="18" Scale="10" />
+          <Property Name="EGRI_TIPI" Type="Int32" />
+          <Property Name="DEGER_1_BIRIM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DEGER_2_BIRIM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="POMPA_ID" Type="Int32" />
+          <Property Name="TIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Veriler_DBMODELStoreContainer" CdmEntityContainer="VerilerEntities">
+          <EntitySetMapping Name="GRAFIKLER">
+            <EntityTypeMapping TypeName="Veriler_DBMODEL.GRAFIKLER">
+              <MappingFragment StoreEntitySet="GRAFIKLER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GRAFIK_ADI" ColumnName="GRAFIK_ADI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POMPALAR">
+            <EntityTypeMapping TypeName="Veriler_DBMODEL.POMPALAR">
+              <MappingFragment StoreEntitySet="POMPALAR">
+                <ScalarProperty Name="MAX_Q" ColumnName="MAX_Q" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="POMPA_ADI" ColumnName="POMPA_ADI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRAFIK_EGRI_DEGERLERI">
+            <EntityTypeMapping TypeName="Veriler_DBMODEL.GRAFIK_EGRI_DEGERLERI">
+              <MappingFragment StoreEntitySet="GRAFIK_EGRI_DEGERLERI">
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="POMPA_ID" ColumnName="POMPA_ID" />
+                <ScalarProperty Name="DEGER_2_BIRIM" ColumnName="DEGER_2_BIRIM" />
+                <ScalarProperty Name="DEGER_1_BIRIM" ColumnName="DEGER_1_BIRIM" />
+                <ScalarProperty Name="EGRI_TIPI" ColumnName="EGRI_TIPI" />
+                <ScalarProperty Name="DEGER_2" ColumnName="DEGER_2" />
+                <ScalarProperty Name="DEGER_1" ColumnName="DEGER_1" />
+                <ScalarProperty Name="GRAFIK_ID" ColumnName="GRAFIK_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,323 @@
+﻿
+
+@{
+    ViewBag.Title = "Bilgi Defteri";
+    
+}
+
+
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+<!--Sıralama önemli-->
+<link href="../css/bootstrap.min.css" rel="stylesheet" />
+<link href="../css/font-awesome.min.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
+<script src="../js/summernote.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<link href="../css/summernote.css" rel="stylesheet" />
+<script>
+    function BilgileriGetir()
+    {
+        var url = "/Default/BilgileriGetir";
+        $.ajax({
+            type: "GET",
+            url: url,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                $("#selectKayitlar").empty();
+                $.each(response, function (index, item) {
+
+                    $("#selectKayitlar").append('<option value="' + item.Id + '">' + item.Ad + '</option>');
+
+                })
+
+
+
+
+
+            },
+            error: function (xmlHttpRequest, textStatus, errorThrown) {
+                alert('Error');
+            }
+        });
+
+
+
+
+    }
+
+
+
+    $(document).ready(function () {
+        $('#summernote').summernote({ height: 450,focus:true });
+
+
+        
+        BilgileriGetir();
+
+
+
+
+
+
+
+        $("#btnSil").click(function () {
+            var id;
+            $("#selectKayitlar option:selected").each(function () {
+
+                id = $(this).val();
+            });
+
+            $.ajax({
+                url: '/Default/BilgiSil/' + id,
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    if (data == true) {
+                        BilgileriGetir();
+                        alert("Silme işlemi başarılı");
+                    }
+                    else {
+                        alert("Silme işlemi başarısız");
+                    }
+
+                },
+                error: function (xhr) {
+                    return "Bir hata oluştu";
+                }
+            })
+
+
+        });
+
+
+        $('#btnKaydet').click(function () {
+
+            var ss = 0;
+            var kayittipi = 0;
+            var idal = 0;
+            $("#selectKayitlar option:selected").each(function () {
+                ss++;
+                idal=$(this).val();
+            });
+            if (ss == 1)
+            {
+                idal = parseInt(idal);
+                kayittipi = 2;
+
+            }
+            else if (ss == 0)
+            {
+                idal = 0;
+                kayittipi = 1;
+            }
+            else
+            {
+                alert("Lütfen düzenleme için tek kayıt seçiniz");
+                return;
+            }
+
+
+            //$('#txtAd').attr("placeholder", "Kayıt İsmi");
+            var bsl = $('#txtAd').val();
+            var icrk = $('#summernote').code();
+            var url = "/Default/KaydetDuzenle";
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: { baslik: bsl, icerik: icrk, durum: kayittipi, id: idal },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response == true)
+                    {
+                        if (kayittipi==1) {
+
+                            $('#btnYeniKayit').prop("disabled", false);
+                            $('#txtAd').val("");
+                            $('#summernote').code("");
+                            BilgileriGetir();
+                            alert("Kaydetme başarılı");
+                        }
+                        else {
+                            $('#txtAd').val("");
+                            $('#summernote').code("");
+                            BilgileriGetir();
+                            alert("Güncelleme başarılı");
+                        }
+
+                    }
+                    else
+                    {
+                        alert("İşlem Başarısız, lütfen kısa bir süre sonra tekrar deneyiniz.");
+                    }
+                },
+                error: function (xmlHttpRequest, textStatus, errorThrown) {
+                    alert('Error');
+                }
+            });
+        });
+
+        $('#btnYeniKayit').click(function () {
+            $('#summernote').code("");
+            $('#txtAd').val("");
+            $('#txtAd').attr("placeholder", "Yeni Kayıt İsmi Giriniz.");
+            $('#summernote').attr("placeholder", "Yeni Kayıt İsmi Giriniz.");
+            $("#selectKayitlar").val(0);
+            $('#btnKaydet').text("Kaydet");
+            $('#btnYeniKayit').prop( "disabled", true );
+        });
+
+
+        $("#txtAra").bind('input', function () {
+            $('#summernote').code("Seçim yapınız");
+            var kontrol = $("#txtAra").val();
+
+            if (kontrol==null) {
+                kontrol = "";
+            }
+
+            $.ajax({
+                url: '/Default/BilgileriSuz/' + kontrol,
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (data) {
+
+                    $('#selectKayitlar').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#selectKayitlar').append($("<option></option>").attr("value", data[i].Id).text(data[i].Ad));
+                    }
+                },
+                error: function (xhr) {
+                    return "Bir hata oluştu";
+                }
+            })
+
+
+        });
+
+
+
+        $("#selectKayitlar").change(function () {
+            var Html = "";
+            var Baslik = "";
+            var sayi = 0;
+            $('#btnKaydet').text("Güncelle");
+
+            $("#selectKayitlar option:selected").each(function () {
+                sayi++;
+                $.ajax({
+                    url: '/Default/BilgiGetir/' + $(this).val(),
+                    dataType: "json",
+                    type: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        if (sayi>1) {
+                            Html += data.Icerik + '<br /><br />-------- ' + data.Ad + ' Kod sonu --------- <br /><br />';
+                            Baslik += data.Ad + ' - ';
+
+                        }
+                        else {
+                            Html = data.Icerik;
+                            Baslik = data.Ad;
+                        }
+                        $('#summernote').code(Html);
+                        $('#txtAd').val(Baslik);
+
+                    },
+                    error: function (xhr) {
+                        return "Bir hata oluştu";
+                    }
+                })
+
+            });//foreach sonu
+
+        });
+    });
+
+
+
+
+
+</script>
+
+<div>
+    <table class="table" style="background-image:url(../../img/arka.jpg);background-repeat:repeat-x;margin-bottom:0px;height:100px">
+        <tr><td>
+            
+                <center><br /><span style="font-family:Calibri;font-size:20px;font-style:oblique">Bilgi Defteri</span></center><br /><span style="float:right;color:#fff;font-style:oblique"><b>@Html.ActionLink("Çıkış", "CikisYap", "Default")</b></span><br />
+            
+            
+            
+            </td></tr>
+    </table>
+    <table class="table table-bordered">
+        <tr>
+            <td style="width:300px">
+                <div class="form-group">
+
+                    <input type="email" class="form-control" id="txtAra" placeholder="Arama Yapmak İçin Değer Giriniz">
+                </div>
+            </td>
+            <td>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        
+                          <div class="col-sm-9">
+                            <input type="email" class="form-control" id="txtAd" placeholder="Kayıt İsmini Giriniz">
+
+                        </div>
+                        <button type="button" class="btn btn-primary" id="btnYeniKayit">Yeni Kayıt</button>
+                        <button type="button" class="btn btn-success" id="btnKaydet">&nbsp;Kaydet&nbsp;</button>
+                        <button type="button" class="btn btn-danger" id="btnSil">Sil</button>
+                    </div>
+                    
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <select multiple="multiple" class="form-control" id="selectKayitlar" style="height:500px">
+                </select>
+            </td>
+            <td><div id="summernote">Bilgi Defterine Hoşgeldiniz</div></td>
+
+
+        </tr>
+
+    </table>
+</div>
+
+
+
+<div style="position:fixed;top:0px;left:0px">
+    Made by <a href="http://www.emrebenzer.net">Emre Benzer</a>
+</div>
+
+
+
+
+
+

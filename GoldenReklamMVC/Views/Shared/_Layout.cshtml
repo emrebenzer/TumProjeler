@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9">
+    <meta http-equiv="Content-language" content="tr">
+    <meta property="og:title" content="@ViewBag.Title">
+    <meta property="og:description" content="@ViewBag.Description">
+    <meta property="og:image" content="https://www.goldenreklam.net/assets/images/logo/GoldenReklamShare.jpg">
+    <meta property="og:url" content="https://www.goldenreklam.net/">
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7COswald:300,400,500,600,700" rel="stylesheet" type="text/css">
+
+    <!-- styles -->
+    <link href="@Url.Content("~/assets/css/plugins.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/assets/css/style.css")" rel="stylesheet" type="text/css">
+
+</head>
+<body class="loader">
+    <div class="loading">
+        <img class="logo-loading" style="width:250px !important" src="assets/images/logo/Golden-Logo-Son-white.png" alt="logo">
+    </div><!-- loading end -->
+    <!-- pointer start -->
+    <div class="pointer" id="pointer">
+        <i class="fas fa-long-arrow-alt-right"></i>
+        <i class="fas fa-search"></i>
+        <i class="fas fa-link"></i>
+    </div><!-- pointer end -->
+    <!-- to-top-btn start -->
+    <a class="to-top-btn pointer-small" href="#up">
+        <span class="to-top-arrow"></span>
+    </a><!-- to-top-btn end -->
+    <!-- header start -->
+    <header class="fixed-header">
+        <!-- header-flex-box start -->
+        <div class="header-flex-box">
+            <!-- logo start -->
+            <a href="/" class="logo pointer-large animsition-link" style="width:160px !important">
+                <div class="logo-img-box">
+                    <img class="logo-white" src="assets/images/logo/@ViewBag.Logo" alt="logo">
+                    <img class="logo-black" src="assets/images/logo/@ViewBag.Logo" alt="logo">
+                </div>
+            </a><!-- logo end -->
+            <!-- menu-open start -->
+            <div class="menu-open pointer-large">
+                <span class="hamburger"></span>
+            </div><!-- menu-open end -->
+        </div><!-- header-flex-box end -->
+    </header><!-- header end -->
+    <!-- nav-container start -->
+    <nav class="nav-container dark-bg-1">
+        <!-- nav-logo start -->
+        <div class="nav-logo" style="width:150px !important">
+            <img src="assets/images/logo/Golden-Logo-Son-white.png" alt="logo">
+        </div><!-- nav-logo end -->
+        <!-- menu-close -->
+        <div class="menu-close pointer-large"></div>
+        <!-- dropdown-close-box start -->
+        <div class="dropdown-close-box">
+            <div class="dropdown-close pointer-large">
+                <span></span>
+            </div>
+        </div><!-- dropdown-close-box end -->
+        <!-- nav-menu start -->
+        <ul class="nav-menu dark-bg-1">
+            <!-- nav-box start -->
+            <li class="nav-box nav-bg-change">
+                <a href="/" class="animsition-link pointer-large nav-link">
+                    <span class="nav-btn active" data-text="ANA SAYFA">ANA SAYFA</span>
+                </a>
+
+            </li><!-- nav-box end -->
+            <!-- nav-box start -->
+            <li class="nav-box nav-bg-change">
+                <a href="hakkimizda" class="animsition-link pointer-large nav-link">
+                    <span class="nav-btn" data-text="HAKKIMIZDA">HAKKIMIZDA</span>
+                </a>
+
+            </li><!-- nav-box end -->
+            <!-- nav-box start -->
+            <li class="nav-box nav-bg-change">
+                <a href="baski-teknikleri" class="animsition-link pointer-large nav-link">
+                    <span class="nav-btn" data-text="BASKI TEKNİKLERİ">BASKI TEKNİKLERİ</span>
+                </a>
+            </li><!-- nav-box end -->
+            <!-- nav-box start -->
+            <li class="nav-box nav-bg-change">
+                <a href="hizmetlerimiz" class="animsition-link pointer-large nav-link">
+                    <span class="nav-btn" data-text="HİZMETLERİMİZ">HİZMETLERİMİZ</span>
+                </a>
+
+            </li><!-- nav-box end -->
+            <!-- nav-box start -->
+            <li class="nav-box nav-bg-change">
+                <a href="iletisim" class="animsition-link pointer-large nav-link">
+                    <span class="nav-btn" data-text="iletişim">İLETİŞİM</span>
+                </a>
+
+            </li><!-- nav-box end -->
+        </ul><!-- nav-menu end -->
+    </nav><!-- nav-container end -->
+    <!-- animsition-overlay start -->
+    @RenderBody()
+
+    <!-- footer start -->
+    <footer class="footer dark-bg-1">
+        <!-- flex-container start -->
+        <div class="flex-container container top-bottom-padding-90">
+            <!-- column start -->
+            <div class="two-columns bottom-padding-60">
+                <div class="content-right-margin-10 footer-center-mobile">
+                    <img class="footer-logo" src="assets/images/logo/Golden-Logo-Son-white.png" alt="logo">
+                </div>
+            </div><!-- column end -->
+            <!-- column start -->
+            <div class="three-columns bottom-padding-60">
+                <div class="content-left-right-margin-10">
+                    <ul class="footer-menu text-color-4">
+                        <li><a class="pointer-large animsition-link small-title-oswald hover-color" href="/">Ana Sayfa</a></li>
+                        <li><a class="pointer-large animsition-link small-title-oswald hover-color" href="hakkimizda">HAKKIMIZDA</a></li>
+                        <li><a class="pointer-large animsition-link small-title-oswald hover-color" href="baski-teknikleri">BASKI TEKNİKLERİ</a></li>
+                        <li><a class="pointer-large animsition-link small-title-oswald hover-color" href="hizmetlerimiz">HİZMETLERİMİZ</a></li>
+                        <li><a class="pointer-large animsition-link small-title-oswald hover-color" href="iletisim">İLETİŞİM</a></li>
+                    </ul>
+                </div>
+            </div><!-- column end -->
+            <!-- column start -->
+            <div class="four-columns bottom-padding-60">
+                <div class="content-left-right-margin-10 footer-center-mobile">
+                    <ul class="footer-information text-color-4">
+                        <li><i class="far fa-envelope"></i><a href="#" class="xsmall-title-oswald">info@goldenreklam.net</a></li>
+                        <li><i class="fas fa-mobile-alt"></i><a href="#" class="xsmall-title-oswald">+90 532 507 06 05</a></li>
+                        <li><i class="fas fa-mobile-alt"></i><a href="#" class="xsmall-title-oswald">+90 532 166 04 49</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i><a href="#" class="xsmall-title-oswald text-height-17">Molla Hüsrev Mah. Cemal Yener Tosyalı Cad.<br /><span> Esenler İş Hanı No:7/318 Fatih/İstanbul</span></a></li>
+                    </ul>
+                </div>
+            </div><!-- column end -->
+            <!-- column start -->
+            <div class="three-columns bottom-padding-60">
+                <div class="content-left-margin-10">
+                    <ul class="footer-social">
+                        <li>
+                            <div class="flip-btn-box">
+                                <a href="https://www.instagram.com/reklamgolden" class="flip-btn pointer-small" data-text="Instagram">Instagram</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flip-btn-box">
+                                <a href="https://www.facebook.com/goldenreklam" class="flip-btn pointer-small" data-text="Facebook">Facebook</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flip-btn-box">
+                                <a href="#" class="flip-btn pointer-small" data-text="Vimeo">Vimeo</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flip-btn-box">
+                                <a href="#" class="flip-btn pointer-small" data-text="Behance">Behance</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- column end -->
+            <!-- column start -->
+            <div class="twelve-columns">
+                <p class="p-letter-style text-color-4 footer-copyright">&copy; Copyright 2020 Golden Reklam <br />Design by <a href="#">Benzer Yazılım</a></p>
+            </div><!-- column end -->
+        </div><!-- flex-container end -->
+    </footer><!-- footer end -->
+    <!-- scripts -->
+    <script src="@Url.Content("~/assets/js/plugins.js")"></script>
+    <script src="@Url.Content("~/assets/js/main.js")"></script>
+
+    <script>
+        window.callbellSettings = {
+            token: "Gr5t5m3sLcUx3741b2KYjpBD"
+        };
+        (function () { var w = window; var ic = w.callbell; if (typeof ic === "function") { ic('reattach_activator'); ic('update', callbellSettings); } else { var d = document; var i = function () { i.c(arguments) }; i.q = []; i.c = function (args) { i.q.push(args) }; w.Callbell = i; var l = function () { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://dash.callbell.eu/include/' + window.callbellSettings.token + '.js'; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); }; if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })()
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167044397-1"></script>
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-167044397-1');
+
+
+        window.onpageshow = function (event) {
+            if (event.persisted) {
+                window.location.reload()
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Print";
+
+
+}
+
+<script src="@Url.Content("~/Content/plugins/jquery-1.11.0.min.js")" type="text/javascript"></script>
+<!--<![endif]-->
+
+<script src="~/Scripts/jspdf.js"></script>
+<script src="~/Scripts/jspdf.debug.js"></script>
+
+
+<script src="~/Scripts/printThis.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        AyrintiDoldur('@ViewBag.ID');
+
+
+
+    });
+
+
+
+    function AyrintiDoldur(ID) {
+        $.ajax({
+            url: '@Url.Action("GetOrderProducts","Admin")', //your server side script, //our data
+            type: 'POST',
+            async: false,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ ID: ID }),
+            success: function (data) {
+                if (data) {
+                    $("#PeklenenUrunler").empty();
+                    $.each(data.urunler, function (index, item) {
+                        $("#PeklenenUrunler").append('<tr style="display: table-row;vertical-align: inherit;border-color: inherit;"> <td></td> <td style="border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;">' + item.Name + '</td> <td style="border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;"> <table style="width: 100%"> <tbody> <tr> <td style="width: 20%; text-align: center"></td> <td style="width: 60%; text-align: center"> <span style="font-size: 12px; text-align: center" >' + item.Adet + '</span> </td> <td style="width: 20%; text-align: center;"></td> </tr> </tbody> </table> </td> <td  style="border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;text-align: right">' + item.Price + ' €' + '</td> <td style="border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;text-align: right">' + item.GenelToplam + ' €' + '</td> </tr>');
+                    });
+
+                    $("#PtoplamAdet").html(data.GenelBilgiler.Adet);
+                    $("#ParaToplam").html(data.GenelBilgiler.AraToplam + " €");
+                    $("#PvergiTutari").html(data.GenelBilgiler.Vergi + " €");
+                    $("#PvergiDahil").html(data.GenelBilgiler.VergiDahil + " €");
+                    $("#PTextIskonto").html(data.GenelBilgiler.Komisyon + " €");
+                    $("#PgenelToplam").html(data.GenelBilgiler.GenelToplam + " €");
+
+                    window.print();
+                    window.close();
+
+                }
+
+            },
+            error: function () {
+
+            }
+        });
+    }
+
+</script>
+
+
+<div class="portlet-body" id="PdivTumVeriler" style="clear: both;padding: 0;line-height: 1.42857143">
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered table-striped" style="border: 1px solid #ddd;width: 100%;max-width: 100%;margin-bottom: 20px;border-spacing: 0;border-collapse: collapse;display: table;">
+            <thead style="display: table-header-group;vertical-align: middle;border-color: inherit;">
+                <tr style="display: table-row;vertical-align: inherit;border-color: inherit;">
+                    <th style="width: 5%;border-bottom: 0;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align: left;display: table-cell;">#</th>
+                    <th style="width: 40%;border-bottom: 0;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align: left;display: table-cell;">Ürün </th>
+                    <th style="width: 20%;border-bottom: 0;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align: left;display: table-cell;">Adet </th>
+                    <th style="width: 15%;border-bottom: 0;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align: left;display: table-cell;">Birim Fiyat </th>
+                    <th style="width: 20%;border-bottom: 0;border: 1px solid #ddd;padding: 8px;line-height: 1.42857143;text-align: left;display: table-cell;">Toplam Tutar </th>
+
+                </tr>
+            </thead>
+            <tbody id="PeklenenUrunler" style="display: table-row-group;vertical-align: middle;border-color: inherit;"></tbody>
+        </table>
+    </div>
+    <div class="well" style="background-color: #eee;border: 0;-moz-box-shadow: none !important;box-shadow: none !important;min-height: 20px;padding: 19px;margin-bottom: 20px;">
+        <div class="row static-info align-reverse" style="margin-bottom: 10px;margin-right: -15px;margin-left: -15px;">
+            <div class="col-md-9 name" style="text-align: right;font-size: 14px;width: 75%;float: left;position: relative;min-height: 1px;padding-right: 0;padding-left: 0px;">Toplam Adet: </div>
+            <div class="col-md-3 value" style="text-align: right;font-size: 14px;font-weight: 600;width: 25%;float:left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;"><span id="PtoplamAdet"></span></div>
+            <div style="clear: left;"></div>
+        </div>
+        <div class="row static-info align-reverse" style="margin-bottom: 10px;margin-right: -15px;margin-left: -15px;">
+            <div class="col-md-9 name" style="text-align: right;font-size: 14px;width: 75%;float: left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;">Ara Toplam: </div>
+            <div class="col-md-3 value" style="text-align: right;font-size: 14px;font-weight: 600;width: 25%;float:left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;"><span id="ParaToplam"></span></div>
+            <div style="clear: left;"></div>
+        </div>
+        <div class="row static-info align-reverse" style="margin-bottom: 10px;margin-right: -15px;margin-left: -15px;">
+            <div class="col-md-9 name" style="text-align: right;font-size: 14px;width: 75%;float: left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;">Vergi Tutarı(%19): </div>
+            <div class="col-md-3 value" style="text-align: right;font-size: 14px;font-weight: 600;width: 25%;float:left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;"><span id="PvergiTutari"></span></div>
+            <div style="clear: left;"></div>
+        </div>
+        <div class="row static-info align-reverse" style="margin-bottom: 10px;margin-right: -15px;margin-left: -15px;">
+            <div class="col-md-9 name" style="text-align: right;font-size: 14px;width: 75%;float: left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;">Vergi Dahil: </div>
+            <div class="col-md-3 value" style="text-align: right;font-size: 14px;font-weight: 600;width: 25%;float:left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;"><span id="PvergiDahil"></span></div>
+            <div style="clear: left;"></div>
+        </div>
+        <div class="row static-info align-reverse" style="margin-bottom: 10px;margin-right: -15px;margin-left: -15px;">
+            <div class="col-md-9 name" style="text-align: right;font-size: 14px;width: 75%;float: left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;">İskonto(%12,6): </div>
+            <div class="col-md-3 value" style="text-align: right;font-size: 14px;font-weight: 600;width: 25%;float:left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;"><span id="PTextIskonto"></span></div>
+            <div style="clear: left;"></div>
+        </div>
+        <div class="row static-info align-reverse" style="margin-bottom: 10px;margin-right: -15px;margin-left: -15px;">
+            <div class="col-md-9 name" style="text-align: right;font-size: 14px;width: 75%;float: left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;">Genel Toplam: </div>
+            <div class="col-md-3 value" style="text-align: right;font-size: 14px;font-weight: 600;width: 25%;float:left;position: relative;min-height: 1px;padding-right: 0px;padding-left: 0px;"><span id="PgenelToplam"></span></div>
+            <div style="clear: left;"></div>
+        </div>
+    </div>
+
+
+</div>

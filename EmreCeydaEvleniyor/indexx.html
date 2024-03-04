@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+$("#txt").keypress(function (e) {
+     //if the letter is not digit then display error and don't type anything
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        //display error message
+        
+               return false;
+    }
+   });
+$("#txt").on("blur",function(){
+
+var deger=$("#txt").val();
+  deger = deger.replace(/[^0-9]/g, '');
+  deger = deger.replace(/(\d{1})(\d{3})(\d{3})(\d{4})/, "$1($2) $3-$4");
+  $("#txt").val(deger);
+});
+})
+
+</script>
+
+
+</head>
+<body>
+<br />
+<br/>
+<input type="text" id="txt" maxlength="11"/>
+
+<br/>
+
+
+
+</body>
+</html>

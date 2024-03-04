@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Blog/Master.cshtml";
+}
+<div class="clearfix"></div>
+<div class="container">
+    <!--======= CONTACT ME =========-->
+    <section class="post-sec contact-me">
+        <img class="img-responsive" src="../../images/contact-img.jpg" alt="">
+        <section>
+            <h4>contact me</h4>
+            <p>
+                Over a river there was a very narrow bridge. One day a goat was crossing this bridge. Just at the middle of the bridge he met another goat. There was no room for them to pas two Goats"
+                Go back," said one goat to the other, "there is no room for both of us". "<span>Why should </span>I go back?", said the other goat. "Why should not you go back?".
+            </p>
+            <div class="contact-form">
+                <form class="form-horizontal">
+                    <ul class="row">
+                        <li class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name" class="col-sm-2 no-padding control-label">Name*</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name" placeholder="">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-4">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Email*</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-4">
+                            <div class="form-group">
+                                <label for="web" class="col-sm-3 control-label">Website</label>
+                                <div class="col-sm-9 no-padding">
+                                    <input type="text" class="form-control" id="web" placeholder="">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-12">
+                            <div class="form-group">
+                                <textarea name="msg" cols="4" rows="1"></textarea>
+                                <button type="submit" class="btn">Send Message</button>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!--======= SOCIAl ICONS =========-->
+            <ul class="social_icons">
+                <li class="twitter"><a href="#small-dialog" class="zoom popup-with-move-anim"><i class="fa fa-envelope"></i></a></li>
+                <li class="facebook"><a href="#."><i class="fa fa-facebook"></i></a></li>
+                <li class="twitter"><a href="#."><i class="fa fa-twitter"></i></a></li>
+                <li class="blogger"><a href="#."><i class="fa fa-rss"></i></a></li>
+                <li class="vimeo"><a href="#."><i class="fa fa-vimeo-square"></i></a></li>
+            </ul>
+        </section>
+        <section class="address-wrapp">
+            <h4>our address</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="adress-block">
+                        <h3>Address</h3>
+                        <ul>
+                            <li>244 5th Avenue. Suite 1735</li>
+                            <li>New York, N.Y.</li>
+                            <li>USA, 10001</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="adress-block">
+                        <h3>Email</h3>
+                        <a href="mailto:">say_hello@simplissio.com</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="adress-block">
+                        <h3>Phone</h3>
+                        <a href="tel:">+30 (999) 158 5454</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="map">
+                        <div class="map-canvas" id="map-canvas-contact" data-lat="40.7027922" data-lng="-73.9789944" data-zoom="12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> 
+

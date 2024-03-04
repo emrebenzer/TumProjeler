@@ -1,0 +1,128 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenReklamMVC", "GoldenReklamMVC\GoldenReklamMVC.csproj", "{4EEBDF94-8621-4713-BCEC-CCCAE6E92A7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SesinoksPompaProgrami", "SesinoksPompaProgrami\SesinoksPompaProgrami.csproj", "{C1015770-EECD-4FF1-BE68-D6358E544B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmreBenzer.Net", "EmreBenzer.Net\EmreBenzer.Net.csproj", "{730904FE-CE53-4EEA-8F05-0A318892FDC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenzerYazilimPanel", "BenzerYazilimAdminPanel\BenzerYazilimPanel.csproj", "{E812F5A1-F9B2-483C-985F-EE2A605B56E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiparisModulu_MVC", "BenzerYazilimPanel\SiparisModulu_MVC.csproj", "{4324421B-67A8-4212-9C2C-7F9C17D42C57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmreBenzerNet_MVC", "EmreBenzerMVC\EmreBenzerNet_MVC.csproj", "{941DBA8D-19E3-49C9-882A-6C43D40CD044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BilgiDefteri_MVC", "BilgiDefteri_MVC\BilgiDefteri_MVC.csproj", "{DA1A9AC1-3F76-4B83-94A9-B854C0D99105}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarmaraMakine", "MarmaraMakine\MarmaraMakine.csproj", "{4BF264D3-3AEE-46D8-BE36-30F513E5E768}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EmreCeydaEvleniyor", "EmreCeydaEvleniyor", "{B26E514C-A05E-4E1D-8F0F-EAF2EA0B9006}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54809"
+		Debug.AspNetCompiler.PhysicalPath = "EmreCeydaEvleniyor\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54809\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54809"
+		Release.AspNetCompiler.PhysicalPath = "EmreCeydaEvleniyor\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54809\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54809"
+		SlnRelativePath = "EmreCeydaEvleniyor\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrunSiparisModulu_MVC", "UrunSiparisModulu\UrunSiparisModulu_MVC.csproj", "{EC55C51E-BB4D-4A14-B44F-4A9A5D09C2B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EEBDF94-8621-4713-BCEC-CCCAE6E92A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EEBDF94-8621-4713-BCEC-CCCAE6E92A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EEBDF94-8621-4713-BCEC-CCCAE6E92A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EEBDF94-8621-4713-BCEC-CCCAE6E92A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1015770-EECD-4FF1-BE68-D6358E544B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1015770-EECD-4FF1-BE68-D6358E544B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1015770-EECD-4FF1-BE68-D6358E544B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1015770-EECD-4FF1-BE68-D6358E544B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{730904FE-CE53-4EEA-8F05-0A318892FDC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730904FE-CE53-4EEA-8F05-0A318892FDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730904FE-CE53-4EEA-8F05-0A318892FDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730904FE-CE53-4EEA-8F05-0A318892FDC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E812F5A1-F9B2-483C-985F-EE2A605B56E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E812F5A1-F9B2-483C-985F-EE2A605B56E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E812F5A1-F9B2-483C-985F-EE2A605B56E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E812F5A1-F9B2-483C-985F-EE2A605B56E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4324421B-67A8-4212-9C2C-7F9C17D42C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4324421B-67A8-4212-9C2C-7F9C17D42C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4324421B-67A8-4212-9C2C-7F9C17D42C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4324421B-67A8-4212-9C2C-7F9C17D42C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{941DBA8D-19E3-49C9-882A-6C43D40CD044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{941DBA8D-19E3-49C9-882A-6C43D40CD044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{941DBA8D-19E3-49C9-882A-6C43D40CD044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{941DBA8D-19E3-49C9-882A-6C43D40CD044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA1A9AC1-3F76-4B83-94A9-B854C0D99105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1A9AC1-3F76-4B83-94A9-B854C0D99105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA1A9AC1-3F76-4B83-94A9-B854C0D99105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA1A9AC1-3F76-4B83-94A9-B854C0D99105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BF264D3-3AEE-46D8-BE36-30F513E5E768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BF264D3-3AEE-46D8-BE36-30F513E5E768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BF264D3-3AEE-46D8-BE36-30F513E5E768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BF264D3-3AEE-46D8-BE36-30F513E5E768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B26E514C-A05E-4E1D-8F0F-EAF2EA0B9006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B26E514C-A05E-4E1D-8F0F-EAF2EA0B9006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B26E514C-A05E-4E1D-8F0F-EAF2EA0B9006}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B26E514C-A05E-4E1D-8F0F-EAF2EA0B9006}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{EC55C51E-BB4D-4A14-B44F-4A9A5D09C2B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC55C51E-BB4D-4A14-B44F-4A9A5D09C2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC55C51E-BB4D-4A14-B44F-4A9A5D09C2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC55C51E-BB4D-4A14-B44F-4A9A5D09C2B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82984083-9589-44BC-A7C3-9DEA3B530781}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://emrebenzer.visualstudio.com/
+		SccProjectUniqueName0 = BenzerYazilimAdminPanel\\BenzerYazilimPanel.csproj
+		SccProjectName0 = BenzerYazilimAdminPanel
+		SccAuxPath0 = https://emrebenzer.visualstudio.com
+		SccLocalPath0 = BenzerYazilimAdminPanel
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = BenzerYazilimPanel\\SiparisModulu_MVC.csproj
+		SccProjectName1 = BenzerYazilimPanel
+		SccAuxPath1 = https://emrebenzer.visualstudio.com
+		SccLocalPath1 = BenzerYazilimPanel
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = EmreBenzerMVC\\EmreBenzerNet_MVC.csproj
+		SccProjectName2 = EmreBenzerMVC
+		SccAuxPath2 = https://emrebenzer.visualstudio.com
+		SccLocalPath2 = EmreBenzerMVC
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = BilgiDefteri_MVC\\BilgiDefteri_MVC.csproj
+		SccProjectName3 = BilgiDefteri_MVC
+		SccAuxPath3 = https://emrebenzer.visualstudio.com
+		SccLocalPath3 = BilgiDefteri_MVC
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = UrunSiparisModulu\\UrunSiparisModulu_MVC.csproj
+		SccProjectName4 = UrunSiparisModulu
+		SccAuxPath4 = https://emrebenzer.visualstudio.com
+		SccLocalPath4 = UrunSiparisModulu
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

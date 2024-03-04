@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Sesinoks Pompa Hesaplama";
+}
+
+
+<script src="@Url.Content("~/Content/jquery-1.11.1.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        $("#btnHesapla").click(function () {
+            $('#tblPompalar .datas').empty();
+            $('#tblPompalar .datas').append('<tr><td>Hesap yapıyorum..</td></tr>');
+            $.ajax({
+                url: '/Home/HesapYap',
+                type: 'POST',
+                data: JSON.stringify({ flowDegeri: $("#txtFlow").val(), plessureDegeri: $("#txtPressure").val(), viscosityDegeri: $("#txtViscosity").val() }),
+                dataType: 'json',
+                async: false,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $('#tblPompalar .datas').empty();
+                    $.each(data, function (index, item) {
+                        if (item.SorunsuzMu==true) {
+                            $('#tblPompalar .datas').append('<tr style="background-color:Green;font-weight:bold"><td>' + item.PompaIsim + '</td><td>' + item.Speed + '</td><td>' + item.Power + '</td><td>' + item.NPSH + '</td></tr>');
+                        }
+                        else {
+                            $('#tblPompalar .datas').append('<tr style="background-color:Red;font-weight:bold"><td>' + item.PompaIsim + '</td><td>' + item.Speed + '</td><td>' + item.Power + '</td><td>' + item.NPSH + '</td></tr>');
+                            
+                        }
+                        
+                    });
+
+
+                }
+            });
+
+
+        });
+
+
+
+
+    });
+
+
+
+
+
+</script>
+
+
+<div class="jumbotron">
+    <h1>SESINOKS</h1>
+    <p class="lead">Pompa Tespit Programı</p>
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Flow (m3/h)</label>
+            <div class="input-icon input-icon-sm">
+                <i class="fa fa-bell-o"></i>
+                <input type="number" pattern="[0-9]+([,][0-9]+)?" step="0.1" class="form-control input-sm" id="txtFlow" placeholder="Flow">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Pressure (bar)</label>
+            <div class="input-icon input-icon-sm">
+                <i class="fa fa-bell-o"></i>
+                <input type="number" pattern="[0-9]+([,][0-9]+)?" step="0.1" class="form-control input-sm" id="txtPressure" placeholder="Pressure">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Viscosity (cPs)</label>
+            <div class="input-icon input-icon-sm">
+                <i class="fa fa-bell-o"></i>
+                <input type="number" pattern="[0-9]+([,][0-9]+)?" step="0.1" class="form-control input-sm" id="txtViscosity" placeholder="Viscosity">
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="button" class="btn btn-success" value="Hesapla" id="btnHesapla">
+        </div>
+        
+    </div>
+
+    <div class="col-md-6">
+        <div class="table-scrollable">
+            <table id="tblPompalar" class="table table-hover">
+                <thead>
+                    <tr>
+
+                        
+                        <th style="width: 31%;">
+                            Pompa
+                        </th>
+                        <th style="width: 23%;">
+                            Speed
+                        </th>
+                        <th style="width: 23%;">
+                            Power
+                        </th>
+                        <th style="width: 23%;">
+                            NPSH
+                        </th>
+                       
+                    </tr>
+                </thead>
+                <tbody class="datas">
+                    <tr>
+                        <td colspan="11">Henüz bir sonuç yok.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+</div>

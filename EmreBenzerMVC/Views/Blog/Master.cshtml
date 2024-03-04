@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EmreBenzer.Net</title>
+    <meta name="keywords" content="HTML5,CSS3,HTML,Template,Multi-Purpose,M_Adnan,Corporate Theme,HTML5 Theme,blog">
+    <meta name="description" content="Simplissimo HTML">
+    <meta name="author" content="M_Adnan">
+
+    <!-- FONTS ONLINE -->
+    <!--MAIN STYLE-->
+    <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="~/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/css/responsive.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Page Wrap ===========================================-->
+    <div id="wrap">
+
+        <!--======= HEADER =========-->
+        <header class="sticky header-wall">
+            <div class="container">
+                <div class="row">
+                    <div class="container">
+                        <div class="row">
+                            <div class="top-header">
+                                <ul class="social_icons">
+                                    <li class="twitter"><a href="#small-dialog" class="zoom popup-with-move-anim"><i class="fa fa-envelope"></i></a></li>
+                                    <li class="facebook"><a href="#."><i class="fa fa-facebook"></i></a></li>
+                                    <li class="twitter"><a href="#."><i class="fa fa-twitter"></i></a></li>
+                                    <li class="blogger"><a href="#."><i class="fa fa-rss"></i></a></li>
+                                    <li class="vimeo"><a href="#."><i class="fa fa-vimeo-square"></i></a></li>
+                                </ul>
+                                <div class="logo"> <a href="@Url.Action("Index","Blog")"> <img src="../../images/logo-white.png" alt="" width="268"> </a> </div>
+                                <div id="sb-search" class="sb-search">
+                                    <span class="sb-icon-search"> </span>
+                                    <form>
+                                        <input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search" id="search">
+                                        <input class="sb-search-submit" type="submit" value="">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu">
+
+                        <nav class="navbar-nav nav">
+
+                            <!--======= MENU =========-->
+                            <nav class="navbar navbar-default">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-respo"> <span class="sr-only fa fa-navicon"></span> </button>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="nav-respo">
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown">
+                                            <a class="active" href="@Url.Action("Index","Blog")">ana sayfa <span class="fa fa-angle-down menu-arrow"></span></a>
+
+                                            <ul class="dropdown-menu">
+                                                <li> <a href="@Url.Action("Index","Blog")"> Homepage (Sidebar)</a></li>
+                                                <li> <a href="index-2.html"> Homepage (ImageWall)</a></li>
+                                                <li> <a href="grid-layout.html"> homepage (grid)</a> </li>
+                                                <li> <a href="full-width-post.html"> homepage Full </a> </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown">
+                                            <a href="#">pages <span class="fa fa-angle-down menu-arrow"></span></a>
+
+                                            <ul class="dropdown-menu">
+                                                <li> <a href="@Url.Action("AboutMe","Blog")">hakkımda </a></li>
+                                                <li> <a href="contact-me.html">iletişim </a></li>
+                                                <li> <a href="contact-with-side-bar.html">CONTACT WITH SIDEBAR </a></li>
+                                                <li> <a href="gallery-post.html">Gallery Post </a></li>
+                                                <li> <a href="gallery-thumb-post.html">Gallery thumb</a></li>
+                                                <li> <a href="multiple-photos-post.html">Multiple Photos post </a></li>
+                                                <li> <a href="simple-text-post.html">Simple Text Post</a></li>
+                                                <li> <a href="standard-post.html">Standard Post </a></li>
+                                                <li> <a href="video-post.html">Video Post </a></li>
+                                            </ul>
+                                        </li>
+                                        <li> <a href="@Url.Action("AboutMe","Blog")"> hakkımda </a></li>
+                                        <li> <a href="grid-layout.html"> blog </a></li>
+                                        <li> <a href="grid-layout.html"> kariyer </a></li>
+                                        <li> <a href="grid-layout.html"> araçlar </a></li>
+                                        <li> <a href="@Url.Action("Contact","Blog")"> iletişim </a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!--======= LOGO =========-->
+
+
+        </header>
+
+        <!--======= CONTENT START =========-->
+
+        <div class="content">
+            @RenderBody()
+        </div>
+
+        <!--======= FOOTER  =========-->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="row">
+                        <li class="col-sm-6"> <img class="img-responsive" src="../../images/f-img-1.jpg" alt=""> <img class="img-responsive" src="../../images/f-img-2.jpg" alt=""> </li>
+                        <li class="col-sm-6"> <img class="img-responsive" src="../../images/f-img-3.jpg" alt=""> </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="row">
+                        <li class="col-sm-3 inst"><a href="#."><img src="../../images/instgram.png" alt=""></a></li>
+                        <li class="col-sm-3"><img class="img-responsive" src="../../images/f-img-5.jpg" alt=""></li>
+                        <li class="col-sm-6"><img class="img-responsive" src="../../images/f-img-7.jpg" alt=""></li>
+                        <li class="col-sm-3"><img class="img-responsive" src="../../images/f-img-4.jpg" alt=""></li>
+                        <li class="col-sm-6"><img class="img-responsive" src="../../images/f-img-6.jpg" alt=""></li>
+                        <li class="col-sm-3"><img class="img-responsive" src="../../images/f-img-8.jpg" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="rights">
+                    <p>© Copyright 2014. All Rights Reserved.</p>
+
+                    <a id="back-to-top" class="back-top" href="#wrap">Top</a>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!--======= SUBCRIBE POPUP =========-->
+    <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+        <div class="pop_up">
+            <h3>Be in the Know.</h3>
+            <p>
+                Be the first to subscribe to our newsletter and <br>
+                receive our latest news!
+            </p>
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Valid Email">
+            </div>
+            <button class="btn"> Subscribe</button>
+            <span>Your information will never be shared or sold to a 3rd party and you can unsubscribe at any time.</span>
+        </div>
+    </div>
+    <!--======= SUBCRIBE POPUP =========-->
+
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.flexslider-min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/idangerous.swiper.min.js"></script>
+    <script src="~/js/jquery.accordionSlider.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/uisearch.js"></script>
+    <script src="~/js/main.js"></script>
+    <script type="text/javascript">
+  jQuery(document).ready(function($) {
+    // instantiate the accordion
+    $('#example1').accordionSlider({
+      width: 1920,
+      height: 850,
+      closePanelsOnMouseOut: true,
+      shadow: false,
+      responsiveMode: 'auto',
+      panelDistance: 0,
+      autoplay: false,
+      mouseWheel: false
+    });
+ });
+    </script>
+</body>
+</html>

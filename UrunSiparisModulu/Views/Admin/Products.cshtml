@@ -1,0 +1,575 @@
+﻿@{
+
+    var Title = ViewBag.Title;
+    Layout = "~/Views/AdminShared/Master.cshtml";
+}
+
+<script src="~/Content/plugins/select2/select2.min.js"></script>
+<link href="~/Content/plugins/select2/select2.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.printElement.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.formatCurrency-1.4.0.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.formatCurrency.all.js")"></script>
+<script>
+    function yarat() {
+        var h2s = document.getElementsByTagName("h2");
+        for (var i = 0; i < h2s.length; i++)
+            h2s[i].childNodes[0].nodeValue = h2s[i].childNodes[0].nodeValue.toTrkUpperCase();
+    }
+    String.prototype.toTrkUpperCase = function () {
+        var str = [];
+        for (var i = 0; i < this.length; i++) {
+            var ch = this.charCodeAt(i);
+            var c = this.charAt(i);
+            if (ch == 105)
+                str.push('İ');
+            else if (ch == 305)
+                str.push('I');
+            else if (ch == 287)
+                str.push('Ğ');
+            else if (ch == 252)
+                str.push('Ü');
+            else if (ch == 351)
+                str.push('Ş');
+            else if (ch == 246)
+                str.push('Ö');
+            else if (ch == 231)
+                str.push('Ç');
+            else if (ch >= 97 && ch <= 122)
+                str.push(c.toUpperCase());
+            else
+                str.push(c);
+        }
+        return str.join('');
+    }
+    $(document).ready(function () {
+
+        $('.currency').blur(function () {
+            $('.currency').formatCurrency();
+        }).on('blur', function () {
+            if (!$(this).val())
+                $(this).val('0,00');
+        });
+
+
+        $("#txtAramaMetin").bind('keyup focus', function () {
+
+            var deger = $("#txtAramaMetin").val();
+            var liste = deger.split(' ');
+            var listeDeger = liste.length;
+
+
+            //$("#textAnaDiv").removeAttrs("class");
+            //$("#textAnaDiv").attr("class", "form-group has-success has-feedback");
+
+            //$("#spanLogo").removeAttrs("class");
+            //$("#spanLogo").attr("class", "glyphicon glyphicon-ok form-control-feedback");
+
+
+            UrunGetir(mevcutSayfa, deger);
+
+
+
+
+        });
+
+        KategoriGetir();
+
+        $("#select2_categories").on("change", function () {
+            UrunGetir(1, "");
+        });
+
+        $("#kategoriSil").click(function () {
+            var ID = $("#select2_categories").val();
+            if (ID=="0" || ID==null) {
+                return;
+            }
+
+
+            var r = confirm("Kategoriyi silerseniz tüm alt ürünler silinecektir. Silmek istediğinizden emin misiniz?");
+            if (r == true) {
+                $.ajax({
+                    type: "POST",
+                    url: '@(Url.Action("KategoriSil", "Admin"))',
+                    async: false,
+                    data: JSON.stringify({ id: ID }),
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data == true) {
+                            alert("Silme işlemi başarılı...");
+                            KategoriGetir();
+                            UrunGetir(1, "");
+                        }
+                        else {
+                            alert("Silme işlemi başarısız...Lütfen tekrar deneyiniz.");
+                        }
+                    },
+                    error: function (ddd) {
+                        alert("Silme işlemi başarısız...Lütfen tekrar deneyiniz.");
+                    }
+                });
+            }
+            else {
+
+            }
+            
+
+        });
+
+        $("#UrunKaydet").click(function () {
+            var inputName = $("#inputName").val();
+            var inputDescription = $("#inputDescription").val();
+            var inputPrice = $("#inputPrice").val();
+            var inputStock = $("#inputStock").val();
+            var inputCategories = $("#inputCategories").val();
+            var hiddenUrunID = $("#hiddenUrunID").val();
+
+            if (inputName == "")
+            {
+                alert("Lütfen ürün ismi giriniz");
+                return;
+            }
+            else if (inputPrice=="" || inputPrice=="0,00") {
+                alert("Lütfen ürünün ücretini giriniz.");
+                return;
+            }
+            else if (inputStock=="0" || inputStock=="") {
+                alert("Lütfen stok miktarını giriniz.");
+                return;
+            }
+            else if (inputCategories == null || inputCategories == "0" || inputCategories == 0)
+            {
+                alert("Lütfen kategori seçiniz.");
+                return;
+            }
+            else if (hiddenUrunID == "0")
+            {
+                if ($("#FILEUPLOAD").val() == null || $("#FILEUPLOAD").val() == "" || $("#FILEUPLOAD").val() == undefined)
+                {
+                    alert("Lütfen resim dosyası seçiniz..");
+                    return;
+                }
+            }
+
+
+
+            $.ajax({
+                url: '@Url.Action("URUN_EKLE","Admin")', //your server side script, //our data
+                type: 'POST',
+                async: false,
+                data: JSON.stringify({ inputName : inputName, inputDescription:inputDescription,inputPrice:inputPrice, inputStock:inputStock, inputCategories:inputCategories, hiddenUrunID:hiddenUrunID }),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data)
+                {
+                    if (data == true)
+                    {
+                        alert("Kayıt işlemi başarılı...");
+                        UrunGetir(1, "");
+                        YeniUrunEkle();
+                    }
+                    else
+                    {
+                        alert("Kayıt işlemi başarısız...Lütfen tekrar deneyiniz.");
+                    }
+                }
+            });
+
+
+            
+
+
+
+        });
+
+        $("#FILEUPLOAD").change(function (evt) {
+            var files = $(this)[0].files[0];
+            var formData = new FormData();
+            formData.append("file", files);
+            
+            $.ajax({
+                type: "POST",
+                url: '@(Url.Action("UploadFileWithAjax", "Admin"))',
+                async: false,
+                data: formData,
+                success: function (message) {
+
+                },
+                cache: false,
+                contentType: false,
+                processData: false,
+                error: function () {
+                    alert("There was error uploading files!");
+                }
+            });
+        });
+    });
+
+
+    function UrunSil(ID)
+    {
+        var r = confirm("Ürünü silmek istediğinizden emin misiniz?");
+        if (r == true) {
+            $.ajax({
+                type: "POST",
+                url: '@(Url.Action("UrunSil", "Admin"))',
+                async: false,
+                data: JSON.stringify({ id: ID }),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data == true) {
+                        alert("Silme işlemi başarılı...");
+                        UrunGetir(1, "");
+                        YeniUrunEkle();
+                    }
+                    else {
+                        alert("Silme işlemi başarısız...Lütfen tekrar deneyiniz.");
+                    }
+                },
+                error: function () {
+                    alert("Silme işlemi başarısız...Lütfen tekrar deneyiniz.");
+                }
+            });
+        } else {
+            
+        }
+    }
+
+    function KategoriGetir()
+    {
+        $.ajax({
+            url: '@Url.Action("GetCategories","Admin")', //your server side script, //our data
+            type: 'POST',
+            async: false,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+
+                $("#select2_categories").empty();
+                $("#select2_categories").append('<option value="0">Kategori Seçiniz</option>');
+                $("#inputCategories").empty();
+                $("#inputCategories").append('<option value="0">Kategori Seçiniz</option>');
+                $.each(data, function (index, item) {
+                    $("#select2_categories").append('<option value="' + item.ID + '">' + item.Text + '</option>');
+                    $("#inputCategories").append('<option value="' + item.ID + '">' + item.Text + '</option>');
+                });
+                $("#select2_categories").select2();
+                $("#inputCategories").select2();
+
+
+            },
+            error: function () {
+
+            }
+        });
+
+    }
+
+    function UrunDuzenle(ID, NAME, PRICE, IMAGE, DESC, CATEGORY, STOK) {
+        $("#hiddenUrunID").val(ID);
+        $("#inputName").val(NAME);
+        $("#inputDescription").val(DESC);
+        $("#inputPrice").val(PRICE);
+        $("#inputStock").val(STOK);
+        $("#inputCategories").select2('val', CATEGORY);
+        $("#imgUrun").removeAttr("src");
+        $("#imgUrun").attr("src", "../Images/" + IMAGE);
+        $("#UrunKaydet").html("Güncelle");
+    }
+
+    function YeniUrunEkle() {
+        $("#hiddenUrunID").val(0);
+        $("#inputName").val("");
+        $("#inputDescription").val("");
+        $("#inputPrice").val("0,00");
+        $("#inputStock").val("0");
+        $("#inputCategories").select2('val', 0);
+        $("#imgUrun").removeAttr("src");
+        $("#imgUrun").attr("src", "../Images/yok.png");
+        $("#UrunKaydet").html("Kaydet");
+        $("#FILEUPLOAD").val("");
+    }
+
+    function UrunSonuc(data)
+    {
+        alert(data);
+    }
+
+    function KategoriEkle()
+    {
+        var isim = $("#txtKategoriKonu").val();
+
+        if (isim == "")
+        {
+            alert("Lütfen kategori ismi giriniz..");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: '@(Url.Action("KategoriEkle", "Admin"))',
+            async: false,
+            data: JSON.stringify({ isim: isim }),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                if (data == true) {
+                    alert("Kategori Ekleme Başarılı...");
+                    KategoriGetir();
+                    $("#btnKategoriKapat").click();
+                    UrunGetir(1, "");
+                }
+                else {
+                    alert("Kategori Ekleme Başarısız...Lütfen tekrar deneyiniz.");
+                }
+            },
+            error: function () {
+                alert("Kategori Ekleme Başarısız...Lütfen tekrar deneyiniz.");
+            }
+        });
+
+    }
+
+    var mevcutSayfa = 0;
+    function UrunGetir(page, q) {
+        $.ajax({
+            url: '@Url.Action("GetProducts","Admin")', //your server side script, //our data
+            type: 'POST',
+            async: false,
+            data: JSON.stringify({ katid: $('#select2_categories').val(), pageLimit: '9', page: page, q: q }),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $("#divUrunler").empty();
+                $.each(data.results, function (index, item) {
+                    $("#divUrunler").append('<div class="col-md-4 column productbox"> <img src="../Images/' + item.Image + '" class="img-responsive"> <div class="producttitle">' + item.Name + '</div> <div class="productprice"><div class="pull-right"><a href="javascript:;" class="btn btn-info btn-sm" onclick="UrunDuzenle(\'' + item.ID + '\',\'' + item.Name + '\',\'' + item.Price + '\',\'' + item.Image + '\',\'' + item.Description + '\',\'' + item.CategoryID + '\',\'' + item.Stok + '\')">Düzenle</a></div><div class="pull-right"><a href="javascript:;" class="btn btn-danger btn-sm" onclick="UrunSil(\'' + item.ID + '\')">Sil</a></div><div class="pricetext" style="font-size: 1.0em !important;">' + item.Price + ' €</div></div> </div>');
+
+                });
+                mevcutSayfa = page;
+                var total = data.total;
+                var sayfaSayisi = Math.round(parseInt(total) / 9);
+                if (sayfaSayisi * 9 < parseInt(total)) {
+                    sayfaSayisi++;
+                }
+
+                $("#UlSayfalama").empty();
+                if (parseInt(total) > 0 && mevcutSayfa != 1) {
+                    $("#UlSayfalama").append('<li> <a href="javascript:;" onclick="UrunGetir(parseInt(mevcutSayfa) - 1,$(\'#txtAramaMetin\').val());"> <i class="fa fa-angle-left"></i> </a> </li>');
+                }
+
+                for (var i = 0; i < sayfaSayisi; i++) {
+                    if (i + 1 == mevcutSayfa) {
+                        $("#UlSayfalama").append('<li class="active"> <a href="javascript:;" onclick="UrunGetir(' + (i + 1) + ',$(\'#txtAramaMetin\').val());"> ' + (i + 1) + '</a> </li>');
+                    }
+                    else {
+                        $("#UlSayfalama").append('<li> <a href="javascript:;" onclick="UrunGetir(' + (i + 1) + ',$(\'#txtAramaMetin\').val());"> ' + (i + 1) + '</a> </li>');
+                    }
+
+                };
+                if (parseInt(total) > 0 && sayfaSayisi != mevcutSayfa) {
+                    $("#UlSayfalama").append('<li> <a href="javascript:;" onclick="UrunGetir(parseInt(mevcutSayfa) + 1,$(\'#txtAramaMetin\').val());"> <i class="fa fa-angle-right"></i> </a> </li>');
+                }
+            },
+            error: function () {
+
+            }
+        });
+
+
+    }
+
+</script>
+<style>
+    .productbox {
+        background-color: #ffffff;
+        padding: 10px;
+        margin-bottom: 10px;
+        -webkit-box-shadow: 0 8px 6px -6px #999;
+        -moz-box-shadow: 0 8px 6px -6px #999;
+        box-shadow: 0 8px 6px -6px #999;
+    }
+
+    .producttitle {
+        font-weight: bold;
+        padding: 5px 0 5px 0;
+    }
+
+    .productprice {
+        border-top: 1px solid #dadada;
+        padding-top: 5px;
+    }
+
+    .pricetext {
+        font-weight: bold;
+        font-size: 1.4em;
+    }
+</style>
+<h3 class="page-title" style="font-size: 20px">
+    <small>@Title.ToUpper()</small>
+</h3>
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="/Admin">Ana Sayfa</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">@Title</a>
+        </li>
+    </ul>
+    @*
+    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Tarih aralığını değiştir">
+        <i class="icon-calendar"></i>&nbsp; <span class="thin uppercase visible-lg-inline-block"></span>&nbsp; <i class="fa fa-angle-down"></i>
+    </div>
+    *@
+</div>
+
+<div class="col-md-12">
+    <div class="portlet grey-cascade box">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-cogs"></i>Ürünler
+            </div>
+            <div class="actions">
+                @*<a href="javascript:;" class="btn btn-default btn-sm">
+                    <i class="fa fa-pencil"></i>Edit
+                </a>*@
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="col-md-9" style="margin-bottom: 7px">
+                <select id="select2_categories" class="form-control select2" style="width: 100%;">
+                </select>
+            </div>
+            <div class="col-md-3" style="padding-top:0px !important;"><a  style="height:27px;margin-right:5px;padding-top:3px !important" class="btn btn-info" data-toggle="modal" href="#tebligatKonuEkle">Yeni Ekle</a><button type="button" style="height:27px;padding-top:3px !important" id="kategoriSil" class="btn btn-danger">Sil</button></div>
+            <div class="col-md-12">
+                <input type="text" id="txtAramaMetin" class="form-control" style="width: 100%; height: 26px; font-size: 13px" placeholder="Arama Kriteri Giriniz" />
+            </div>
+            <div class="col-md-8" style="margin-top: 20px">
+                <div class="portlet box blue ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-gift"></i>Ürünler
+                        </div>
+
+                        <div class="actions">
+                            <a href="javascript:;" class="btn btn-default btn-sm" onclick="YeniUrunEkle();">
+                                <i class="fa fa-plus"></i>Yeni Ürün Ekle
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="portlet-body">
+                        <div id="divUrunler" style="margin-top: 20px">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div id="divUrunEkle" class="col-md-4" style="margin-top: 20px" style="border: 1px solid rgb(187, 187, 187)">
+
+                <div class="portlet box blue ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-gift"></i>Ürün Ekle/Düzenle
+                        </div>
+                        <div class="tools">
+                            <a href="" class="collapse" data-original-title="" title=""></a>
+                            @*<a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>*@
+                                            @*<a href="" class="reload" data-original-title="" title=""> </a>
+                            <a href="" class="remove" data-original-title="" title=""></a>*@
+                        </div>
+                    </div>
+                    <div class="portlet-body form">
+
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="control-label">Ürün İsmi</label>
+                                <input type="text" class="form-control" id="inputName" name="inputName">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Açıklama</label>
+                                <input type="text" class="form-control" id="inputDescription" name="inputDescription">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Ücret</label>
+                                <input type="text" class="form-control currency" id="inputPrice" value="0,00" name="inputPrice">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Stok</label>
+                                <input type="text" class="form-control" id="inputStock" value="0" name="inputStock">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Kategori</label>
+                                <select class="form-control select2" id="inputCategories" name="inputCategories"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" style="width:auto !important">Resim: <span style="font-size:9px">( 460px -  250px boyutlarında ekleyiniz. )</span></label>
+                                <input type="file" id="FILEUPLOAD" class="form-control" name="FILEUPLOAD" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG,.gif,.GIF,.tif,.TIF,.bmp,.BMP" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Mevcut Resim</label>
+                                <div class="col-md-5" style="margin-top: 10px; margin-bottom: 10px">
+                                    <img id="imgUrun" class="img-responsive" src="~/Images/yok.png" alt="">
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <input type="hidden" id="hiddenUrunID" name="hiddenUrunID" value="0" />
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="UrunTemizle" class="btn default">Temizle</button>
+                            <button type="button" id="UrunKaydet" class="btn red">Kaydet</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6" style="text-align: center">
+                <ul class="pagination pagination-sm" id="UlSayfalama">
+                </ul>
+
+
+
+            </div>
+            <div class="col-md-6">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="modal fade bs-modal-lg" id="tebligatKonuEkle" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title"><b>Yeni Kayıt: </b>Kategori Kaydı </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" style="margin-bottom: 4px">
+                    <label class="control-label col-md-3" style="text-align: left; padding-top: 10px">Kategori İsmi Giriniz:</label>
+                    <div class="col-md-9" style="margin-bottom: 4px">
+                        <input type="text" id="txtKategoriKonu" class="form-control" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnKategoriKapat" class="btn default" data-dismiss="modal">Kapat</button>
+                <button type="button" onclick="KategoriEkle();" class="btn blue">Kaydet </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

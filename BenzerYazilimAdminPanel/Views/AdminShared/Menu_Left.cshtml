@@ -1,0 +1,886 @@
+﻿<div class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    @*<ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">*@
+    <ul class="page-sidebar-menu  page-header-fixed hidden-sm hidden-xs" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+        <li class="sidebar-toggler-wrapper hide">
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler">
+            </div>
+            <!-- END SIDEBAR TOGGLER BUTTON -->
+        </li>
+        <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+        <li class="sidebar-search-wrapper">
+            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+            <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+            <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+            <!-- END RESPONSIVE QUICK SEARCH FORM -->
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-home"></i>
+                <span class="title">İçerikler</span>
+                @*    <span class="selected"></span>*@
+                <span class="arrow open"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="active">
+                    <a href="@Url.Action("Products", "Admin")">
+                        <i class="icon-bar-chart"></i>
+                        Ürünler
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Services", "Admin")">
+                        <i class="icon-graph"></i>
+                        Hizmetler
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-basket"></i>
+                <span class="title">Resim</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("Galeries", "Admin", new { id = 4 })">
+                        <i class="icon-home"></i>
+                        Galeriler
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Slides", "Admin", new { id = 0 })">
+                        <i class="icon-tag"></i>
+                        Slaytlar
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("SiteImages", "Admin", new { id = 3 })">
+                        <i class="icon-tag"></i>
+                        Site Görselleri
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ImageSettings", "Admin", new { id = 9 })">
+                        <i class="icon-tag"></i>
+                        Ayarlar
+                    </a>
+                </li>
+                @*<li>
+                        <a href="@Url.Action("DAVA", "Home", new { id = 2 })">
+                            <i class="icon-tag"></i>
+                            Tedbirli Davalar
+                        </a>
+                    </li>*@
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="icon-rocket"></i>
+                <span class="title">Bilgi Sayfaları</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("Pages", "Admin")">
+                        <i class="icon-basket"></i>
+                        Sayfalar
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Links", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Bağlantılar
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="icon-rocket"></i>
+                <span class="title">Sistem</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("SeoSettings", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Seo Ayarları
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("SmtpSettings", "Admin")">
+                        <i class="icon-pencil"></i>
+                        SMTP Ayarları
+                    </a>
+                </li>
+                @*<li>
+                        <a href="@Url.Action("ICRA", "Home", new { id = 2 })">
+                            <i class="icon-pencil"></i>
+                            İhtiyati Hacizli Takipler
+                        </a>
+                    </li>*@
+                <li>
+                    <a href="@Url.Action("DbSettings", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Database Ayarları
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="icon-star"></i>
+                <span class="title">Mesajlar</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("MailBox", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Gelen Mesajlar
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("GroupMail", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Toplu Mail
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("GroupSms", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Toplu Sms
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- BEGIN FRONTEND THEME LINKS -->
+        <li>
+            <a href="javascript:;">
+                <i class="icon-star"></i>
+                <span class="title">Kullanıcılar </span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("SystemUsers", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Sistem Kullanıcıları
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("SystemAuthority", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Yetkilendirme
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("NormalUsers", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Normal Kullanıcılar
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("UserMembership", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Kullanıcı Üyelik Formu
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MembershipAgreement", "Admin")">
+                        <i class="icon-pencil"></i>
+                        Kullanıcı Üyelik Sözleşmesi
+                    </a>
+                </li>
+            </ul>
+        </li>
+       
+        @*<li id="DataBaseLi" style="display: none;">
+                <a href="@Url.Action("DATABASE_BAGLANTI", "Home")">
+                    <i class="icon-docs"></i>
+                    <span class="title">Database Bağlantısı</span>
+                    <span class="arrow "></span>
+                </a>
+            </li>*@
+    </ul>
+    <!-- END SIDEBAR MENU -->
+
+
+    <div class="page-sidebar-wrapper">
+        <!-- BEGIN RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+        <ul class="page-sidebar-menu visible-sm visible-xs  page-header-fixed">
+            <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+            <!-- DOC: This is mobile version of the horizontal menu. The desktop version is defined(duplicated) in the header above -->
+
+            <li class="nav-item start active open">
+                <a href="index.html" class="nav-link nav-toggle">
+                    Menü
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+
+
+                    <li class="nav-item" id="CARI_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-home"></i>
+                            <span class="title">Cariler</span>
+                            @*    <span class="selected"></span>*@
+                            <span class="arrow open"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="active">
+                                <a href="@Url.Action("CARI", "Home", new { id = 6 })">
+                                    <i class="icon-bar-chart"></i>
+                                    Tüm Şahıslar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("CARI", "Home", new { id = 0 })">
+                                    <i class="icon-graph"></i>
+                                    Gerçek Şahıslar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("CARI", "Home", new { id = 2 })">
+                                    <i class="icon-graph"></i>
+                                    Bilir Kişiler
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("CARI", "Home", new { id = 3 })">
+                                    <i class="icon-graph"></i>
+                                    Avukatlar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("CARI", "Home", new { id = 4 })">
+                                    <i class="icon-graph"></i>
+                                    Personel
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("CARI", "Home", new { id = 1 })">
+                                    <i class="icon-bulb"></i>
+                                    Firmalar
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="DAVA_GENEL_LI_MOBIL" style="display: none;" class="nav-item">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-basket"></i>
+                            <span class="title">Davalar</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("DAVA", "Home", new { id = 4 })">
+                                    <i class="icon-home"></i>
+                                    Tüm Davalar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DAVA", "Home", new { id = 0 })">
+                                    <i class="icon-tag"></i>
+                                    Faal Davalar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DAVA", "Home", new { id = 3 })">
+                                    <i class="icon-tag"></i>
+                                    Açılacak Davalar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DAVA", "Home", new { id = 9 })">
+                                    <i class="icon-tag"></i>
+                                    Düşen Davalar
+                                </a>
+                            </li>
+                            @*<li>
+                                    <a href="@Url.Action("DAVA", "Home", new { id = 2 })">
+                                        <i class="icon-tag"></i>
+                                        Tedbirli Davalar
+                                    </a>
+                                </li>*@
+                            <li>
+                                <a href="@Url.Action("DAVA", "Home", new { id = 1 })">
+                                    <i class="icon-tag"></i>
+                                    Arşivlenmiş Davalar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DAVA", "Home", new { id = 5 })">
+                                    <i class="icon-tag"></i>
+                                    Duruşma ve Keşif Listesi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DAVA", "Home", new { id = 6 })">
+                                    <i class="icon-pencil"></i>
+                                    Ara Karar Listesi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DAVA", "Home", new { id = 7 })">
+                                    <i class="icon-handbag"></i>
+                                    Karara Çıkan Dosyalar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DAVA", "Home", new { id = 8 })">
+                                    <i class="icon-pencil"></i>
+                                    Temyiz Edilen Dosyalar
+                                </a>
+                            </li>
+                            @*<li>
+                                    <a href="@Url.Action("YAPILACAK", "Home", new { id = 0, modul_ID = 2 })">
+                                        <i class="icon-pencil"></i>
+                                        Davalık İşler
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("TEBLIGAT", "Home", new { id = 0 })">
+                                        <i class="icon-pencil"></i>
+                                        Dava Tebligatları
+                                    </a>
+                                </li>*@
+                            @*<li>
+                                    <a href="@Url.Action("OFFICE_STORY", "Home", new { id = 0 })">
+                                        <i class="icon-pencil"></i>
+                                        Davanın Hikayesi</a>
+                                </li>*@
+                            <li>
+                                <a href="@Url.Action("MUALLAK_RAPORU", "Home", new { islev = 1 })">
+                                    <i class="icon-pencil"></i>
+                                    Lehe Muallak Raporu
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("MUALLAK_RAPORU", "Home", new { islev = 0 })">
+                                    <i class="icon-pencil"></i>
+                                    Aleyhe Muallak Raporu
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="SUC_DUYURU_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;">
+                            <i class="icon-rocket"></i>
+                            <span class="title">Suç Duyuruları</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("SORUSTURMA", "Home", new { id = 9 })">
+                                    <i class="icon-basket"></i>
+                                    Soruşturma Listesi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("TEBLIGAT", "Home", new { id = 2 })">
+                                    <i class="icon-pencil"></i>
+                                    Soruşturma Tebligatları
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("OFFICE_STORY", "Home", new { id = 2 })">
+                                    <i class="icon-pencil"></i>
+                                    Soruşturmanın Hikayesi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("YAPILACAK", "Home", new { id = 0, modul_ID = 3 })">
+                                    <i class="icon-pencil"></i>
+                                    Soruşturma İşler
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="ICRA_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;">
+                            <i class="icon-rocket"></i>
+                            <span class="title">İcra</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("ICRA", "Home", new { id = 4 })">
+                                    <i class="icon-pencil"></i>
+                                    Tüm Takipler
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("ICRA", "Home", new { id = 3 })">
+                                    <i class="icon-pencil"></i>
+                                    Açılacak Takipler
+                                </a>
+                            </li>
+                            @*<li>
+                                    <a href="@Url.Action("ICRA", "Home", new { id = 2 })">
+                                        <i class="icon-pencil"></i>
+                                        İhtiyati Hacizli Takipler
+                                    </a>
+                                </li>*@
+                            <li>
+                                <a href="@Url.Action("ICRA", "Home", new { id = 1 })">
+                                    <i class="icon-pencil"></i>
+                                    Arşivlenmiş Takipler
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("ICRA", "Home", new { id = 0 })">
+                                    <i class="icon-pencil"></i>
+                                    Derdest Takipler
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("TOPLU_ICRA", "ICRA", new { id = 4 })">
+                                    <i class="icon-pencil"></i>
+                                    Toplu İşlemler
+                                </a>
+                            </li>
+                            @*<li>
+                                    <a href="ecommerce_products_edit.html">
+                                        <i class="icon-pencil"></i>
+                                        Haciz Listesi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ecommerce_products_edit.html">
+                                        <i class="icon-pencil"></i>
+                                        Satış Listesi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("YAPILACAK", "Home", new { id = 0, modul_ID = 1 })">
+                                        <i class="icon-pencil"></i>
+                                        İcralık İşler
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("TEBLIGAT", "Home", new { id = 1 })">
+                                        <i class="icon-pencil"></i>
+                                        İcra Tebligatları
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("OFFICE_STORY", "Home", new { id = 1 })">
+                                        <i class="icon-pencil"></i>
+                                        İcranın Hikayesi
+                                    </a>
+                                </li>*@
+                        </ul>
+                    </li>
+                    <li id="SOZLESME_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;">
+                            <i class="icon-star"></i>
+                            <span class="title">Sözleşmeler </span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("SOZLESME", "Home", new { id = 0 })">
+                                    <i class="icon-pencil"></i>
+                                    Tüm Sözleşmeler
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- BEGIN FRONTEND THEME LINKS -->
+                    <li id="DOKUMANLAR_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;">
+                            <i class="icon-star"></i>
+                            <span class="title">Dökümanlar </span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("BELGE", "Home", new { id = 0 })">
+                                    <i class="icon-pencil"></i>
+                                    Döküman Listesi
+                                </a>
+                            </li>
+                            @* <li>
+                                    <a href="@Url.Action("BELGE", "Home", new { id = 0 })">
+                                        <i class="icon-pencil"></i>
+                                        Dava Dökümanları
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("BELGE", "Home", new { id = 0 })">
+                                        <i class="icon-pencil"></i>
+                                        Takip Dökümanları
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("BELGE", "Home", new { id = 0 })">
+                                        <i class="icon-pencil"></i>
+                                        Soruşturma Dökümanları
+                                    </a>
+                                </li>*@
+                        </ul>
+                    </li>
+                    <!-- END FRONTEND THEME LINKS -->
+                    <li id="GELEN_GIDEN_EVRAK_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;">
+                            <i class="icon-diamond"></i>
+                            <span class="title">Gelen Giden Evrak</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            @*<li>
+                                    <a href="@Url.Action("TEBLIGAT", "Home", new { id = 0 })">
+                                        <i class="icon-pencil"></i>
+                                        Dava Tebligatları
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("TEBLIGAT", "Home", new { id = 1 })">
+                                        <i class="icon-pencil"></i>
+                                        İcra Tebligatları
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("TEBLIGAT", "Home", new { id = 2 })">
+                                        <i class="icon-pencil"></i>
+                                        Soruşturma Tebligatları
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("TEBLIGAT", "Home", new { id = 3 })">
+                                        <i class="icon-pencil"></i>
+                                        Diğer Tebligatlar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("TEBLIGAT", "Home", new { id = 4 })">
+                                        <i class="icon-pencil"></i>
+                                        Tebliğ Edilenler
+                                    </a>
+                                </li>*@
+                            <li>
+                                <a href="@Url.Action("TEBLIGAT", "Home", new { id = 5 })">
+                                    <i class="icon-pencil"></i>
+                                    Tebligat Bekleyenler
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("TEBLIGAT", "Home", new { id = 6 })">
+                                    <i class="icon-pencil"></i>
+                                    Hepsi
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="YAPILACAK_ISLER_LI_MOBIL">
+                        <a href="javascript:;">
+                            <i class="icon-puzzle"></i>
+                            <span class="title">Yapılacak İşler</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu" @*id="YAPILACAK_ISLER_IS_LISTESI_LI" style="display:none;"*@>
+                            <li>
+                                <a href="@Url.Action("YAPILACAK", "Home", new { id = 0 })">
+                                    <i class="icon-pencil"></i>
+                                    İş Listesi
+                                </a>
+                            </li>
+                            <li id="YAPILACAK_ISLER_BENIM_IS_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("YAPILACAK", "Home", new { id = 1 })">
+                                    <i class="icon-pencil"></i>
+                                    Benim İşlerim
+                                </a>
+                            </li>
+                            <li id="YAPILACAK_ISLER_TAMAMLANMIS_IS_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("YAPILACAK", "Home", new { id = 2 })">
+                                    <i class="icon-pencil"></i>
+                                    Tamamlanmamış İşler
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="GORUSMELER_LI_MOBIL">
+                        <a href="javascript:;">
+                            <i class="icon-settings"></i>
+                            <span class="title">Görüşmeler</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu" @*id="BENIM_GORUSMELER_LI" style="display:none;"*@>
+                            <li>
+                                <a href="@Url.Action("GORUSMELER", "Home", new { id = 0 })">
+                                    <i class="icon-pencil"></i>
+                                    Benim Görüşmelerim
+                                </a>
+                            </li>
+                            <li id="TUM_GORUSMELER_LI" style="display: none;">
+                                <a href="@Url.Action("GORUSMELER", "Home", new { id = 1 })">
+                                    <i class="icon-pencil"></i>
+                                    Tüm Görüşmeler
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="LINK_10_MOBIL">
+                        <a href="javascript:;">
+                            <i class="icon-logout"></i>
+                            <span class="title">Muhasebe</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="KASA_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("MUHASEBE_KASA_GENEL", "Home", new { id = 0 })">
+                                    <i class="icon-pencil"></i>
+                                    Kasa
+                                </a>
+                            </li>
+                            <li id="MASRAF_AVANS_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("MUHASEBE_MASRAF_AVANS_GENEL", "Home", new { id = 0 })">
+                                    <i class="icon-pencil"></i>
+                                    Tüm Masraflar
+                                </a>
+                            </li>
+                            <li id="MY_MASRAF_AVANS_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("MUHASEBE_MASRAF_AVANS_GENEL", "Home", new { id = 1 })">
+                                    <i class="icon-pencil"></i>
+                                    Benim Masraflar
+                                </a>
+                            </li>
+                            <li id="PERSONEL_HESAP_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("CARI_HESAP", "Home", new { id = 1 })">
+                                    <i class="icon-pencil"></i>
+                                    Personel Hesabı
+                                </a>
+                            </li>
+                            <li id="ONAYLI_PERSONEL_HESAP_LI_MOBIL">
+                                <a href="@Url.Action("CARI_HESAP", "Home", new { id = 4 })">
+                                    <i class="icon-pencil"></i>
+                                    Onaylı Masraflarım
+                                </a>
+                            </li>
+                            <li id="PERSONEL_HESAP_ONAY_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("PERSONEL_CARI_HESAP", "Home", new { id = 3 })">
+                                    <i class="icon-pencil"></i>
+                                    Personel Hesabı Onay
+                                </a>
+                            </li>
+                            <li id="MUVEKKIL_HESAP_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("CARI_HESAP", "Home", new { id = 0 })">
+                                    <i class="icon-pencil"></i>
+                                    Müvekkil Hesabı
+                                </a>
+                            </li>
+                            <li id="MUVEKKIL_HESAP_ONAY_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("FOY_MUHASEBE", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Müvekkil Hesap Onay
+                                </a>
+                            </li>
+                            <li id="SMM_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("SMM_MAKBUZ_PAGE", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    S.M.M
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="VEKALET_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;">
+                            <i class="icon-envelope-open"></i>
+                            <span class="title">Vekalet</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("VEKALETLER", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Vekalet Listesi
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="EDITOR_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;">
+                            <i class="icon-docs"></i>
+                            <span class="title">Editör</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("EDITOR", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Kelime İşlemci
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("TABLO_ISLEMCI", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Tablo İşlemci
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="LINK_13_MOBIL">
+                        <a href="javascript:;">
+                            <i class="icon-docs"></i>
+                            <span class="title">Ajanda</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="KENDI_AJANDA_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("AJANDA", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Benim Ajandam
+                                </a>
+                            </li>
+                            <li id="ORTAK_AJANDA_LI_MOBIL" style="display: none;">
+                                <a href="@Url.Action("COMMON_AJANDA", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Ortak Ajanda
+                                </a>
+                            </li>
+                            @*@if (AVUKAT_PRO_WEB.Models.Provider.ProductProvider.UsableGoogleCal())
+                                {
+                                    <li id="ORTAK_GOOGLE_AJANDA_LI_MOBIL">
+                                        <a href="@Url.Action("GOOGLE_AJANDA", "Home")">
+                                            <i class="icon-pencil"></i>
+                                            Google Ortak Ajanda
+                                        </a>
+                                    </li>
+                                }*@
+
+                        </ul>
+                    </li>
+                    @*<li id="SABLON">
+                            <a href="javascript:;">
+                                <i class="icon-docs"></i>
+                                <span class="title">Şablonlar</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="@Url.Action("SABLON", "Home")">
+                                        <i class="icon-pencil"></i>
+                                        Şablon
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>*@
+
+                    <li id="NOTLAR_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;">
+                            <i class="icon-docs"></i>
+                            <span class="title">Notlar</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("NOT", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Notlar
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="SISTEM_AYARLARI_MOBIL">
+                        <a href="javascript:;">
+                            <i class="icon-settings"></i>
+                            <span class="title">Login Ayarları</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("SifreyiDegistir", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Sifre Güncelleme
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="ADMIN_AYARLARI_LI_MOBIL" style="display: none;">
+                        <a href="javascript:;">
+                            <i class="icon-settings"></i>
+                            <span class="title">Admin Ayarları</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="@Url.Action("KULLANICILAR", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Kullanıcı Ayarları
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DATABASE_BAGLANTI", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Database Bağlantısı
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("MailTanimlari", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Sistem ve Mail Tanımları
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("ANTET_TANIMLARI", "Home")">
+                                    <i class="icon-pencil"></i>
+                                    Antet Tanımları
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    Yardım
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a href="http://www.avukatmarket.com/support/AvukatWebKullanim.docx">
+                            <i class="fa fa-file-word-o"></i>Kullanım Kılavuzları
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.youtube.com/channel/UCPruusSPNJ8ayb2W57wK-Dg" target="_blank">
+                            <i class="fa fa-film"></i>Kullanım Videoları
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("UzaktanYardim", "Help")">
+                            <i class="fa fa-laptop"></i>Uzaktan Yardım
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("SSS", "Help")">
+                            <i class="fa fa-question"></i>SSS
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="@Url.Action("Index", "Help")" class="nav-link nav-toggle">
+                    İletişim
+                    @*<span class="arrow"></span>*@
+                </a>
+
+            </li>
+        </ul>
+        <!-- END RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+    </div>
+</div>
+

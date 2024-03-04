@@ -1,0 +1,1049 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4BF264D3-3AEE-46D8-BE36-30F513E5E768}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarmaraMakine</RootNamespace>
+    <AssemblyName>MarmaraMakine</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\Yeni klasör (4)\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="CKEditor.NET">
+      <HintPath>..\..\..\..\..\Desktop\CKEditor.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="collectionpager">
+      <HintPath>..\..\..\..\..\Desktop\collectionpager.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AboutUs.aspx" />
+    <Content Include="css\960.css" />
+    <Content Include="css\lightview\lightview.css" />
+    <Content Include="css\lightview\skins\blank.gif" />
+    <Content Include="css\lightview\skins\dark\sprite.png" />
+    <Content Include="css\lightview\skins\dark\sprite_ie_lt_7.png" />
+    <Content Include="css\lightview\skins\light\sprite.png" />
+    <Content Include="css\lightview\skins\light\sprite_ie_lt_7.png" />
+    <Content Include="css\lightview\skins\mac\sprite.png" />
+    <Content Include="css\lightview\skins\mac\sprite_ie_lt_7.png" />
+    <Content Include="css\login.css" />
+    <Content Include="css\marmara.css" />
+    <Content Include="css\reset.css" />
+    <Content Include="css\text.css" />
+    <Content Include="data1\images\bogma.jpg" />
+    <Content Include="data1\images\cnc-pres.jpg" />
+    <Content Include="data1\images\kaynak-kapak.jpg" />
+    <Content Include="data1\images\kordon.jpg" />
+    <Content Include="data1\images\koseli-kapak.jpg" />
+    <Content Include="data1\images\punto-kaynak.jpg" />
+    <Content Include="data1\images\test.jpg" />
+    <Content Include="data1\tooltips\slayt1.jpg" />
+    <Content Include="data1\tooltips\slayt2.jpg" />
+    <Content Include="Details.aspx" />
+    <Content Include="Details2.aspx" />
+    <Content Include="engine1\arrows.gif" />
+    <Content Include="engine1\arrows.png" />
+    <Content Include="engine1\bullet.png" />
+    <Content Include="engine1\jquery.js" />
+    <Content Include="engine1\script.js" />
+    <Content Include="engine1\shadowhh.png" />
+    <Content Include="engine1\style.css" />
+    <Content Include="engine1\triangle.png" />
+    <Content Include="engine1\wowslider.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="Information.aspx" />
+    <Content Include="javaScript\html5placeholder.jquery.min.js" />
+    <Content Include="javaScript\jquery.pseudo.js" />
+    <Content Include="javaScript\pngfix.js" />
+    <Content Include="js\builder.js" />
+    <Content Include="js\effects.js" />
+    <Content Include="js\excanvas\excanvas.js" />
+    <Content Include="js\jquery-1.3.2.min.js" />
+    <Content Include="js\jquery-1.4.4.min.js" />
+    <Content Include="js\jquery-1.6.1.min.js" />
+    <Content Include="js\jquery.aw-showcase.js" />
+    <Content Include="js\jquery.aw-showcase.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.lightbox-0.5.js" />
+    <Content Include="js\jquery.lightbox-0.5.min.js" />
+    <Content Include="js\jquery.lightbox-0.5.pack.js" />
+    <Content Include="js\jquery.prettyPhoto.js" />
+    <Content Include="js\lightbox.js" />
+    <Content Include="js\lightview\lightview.js" />
+    <Content Include="js\prototype.js" />
+    <Content Include="js\scriptaculous.js" />
+    <Content Include="js\spinners\spinners.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="resim\03.jpg" />
+    <Content Include="resim\04.jpg" />
+    <Content Include="resim\05.jpg" />
+    <Content Include="resim\05.png" />
+    <Content Include="resim\07.jpg" />
+    <Content Include="resim\072.jpg" />
+    <Content Include="resim\072.png" />
+    <Content Include="resim\073.jpg" />
+    <Content Include="resim\2742013134613661.jpg" />
+    <Content Include="resim\ara.png" />
+    <Content Include="resim\arka-doku.png" />
+    <Content Include="resim\background.png" />
+    <Content Include="resim\benzer.png" />
+    <Content Include="resim\bg.gif" />
+    <Content Include="resim\bg_login.gif" />
+    <Content Include="resim\butonara.png" />
+    <Content Include="resim\but_login_left.gif" />
+    <Content Include="resim\but_login_span.gif" />
+    <Content Include="resim\certificate.jpg" />
+    <Content Include="resim\certificate2.jpg" />
+    <Content Include="resim\certificate3.jpg" />
+    <Content Include="resim\Bcertificate4.jpg" />
+    <Content Include="resim\certificate4.jpg" />
+    <Content Include="resim\en.png" />
+    <Content Include="resim\exclamation.gif" />
+    <Content Include="resim\fabrika-hakkimizda2.jpg" />
+    <Content Include="resim\fabrika-ic.jpg" />
+    <Content Include="resim\fabrika.png" />
+    <Content Include="resim\fax.png" />
+    <Content Include="resim\forgot_bg_left.gif" />
+    <Content Include="resim\forgot_bg_span.gif" />
+    <Content Include="resim\form1\form_bottom.gif" />
+    <Content Include="resim\form1\form_button.gif" />
+    <Content Include="resim\form1\form_input.gif" />
+    <Content Include="resim\form1\form_top.gif" />
+    <Content Include="resim\form1\_notes\dwsync.xml" />
+    <Content Include="resim\hakkimizda-hizmet.jpg" />
+    <Content Include="resim\l - Kopya.jpg" />
+    <Content Include="resim\l.jpg" />
+    <Content Include="resim\lightbulb.gif" />
+    <Content Include="resim\login.css" />
+    <Content Include="resim\logo.jpg" />
+    <Content Include="resim\Logo.png" />
+    <Content Include="resim\makine-resim\2842013123235649.png" />
+    <Content Include="resim\makine-resim\aerosol.jpg" />
+    <Content Include="resim\makine-resim\anasayfa.jpg" />
+    <Content Include="resim\makine-resim\anasayfa2.jpg" />
+    <Content Include="resim\makine-resim\anasayfa3.jpg" />
+    <Content Include="resim\makine-resim\AYK_0628.jpg" />
+    <Content Include="resim\makine-resim\AYK_0630.jpg" />
+    <Content Include="resim\makine-resim\bogum.png" />
+    <Content Include="resim\makine-resim\buyuk\levhakesme2.png" />
+    <Content Include="resim\makine-resim\buyuk\paletizor.png" />
+    <Content Include="resim\makine-resim\buyuk\paletizor1.png" />
+    <Content Include="resim\makine-resim\buyuk\paletizor2.png" />
+    <Content Include="resim\makine-resim\buyuk\paletizor3.png" />
+    <Content Include="resim\makine-resim\buyuk\servo-1.jpg" />
+    <Content Include="resim\makine-resim\buyuk\servo-2.jpg" />
+    <Content Include="resim\makine-resim\buyuk\servo-3.jpg" />
+    <Content Include="resim\makine-resim\buyuk\servo-4.jpg" />
+    <Content Include="resim\makine-resim\buyuk\servo-5.jpg" />
+    <Content Include="resim\makine-resim\buyuk\servo-6.jpg" />
+    <Content Include="resim\makine-resim\buyuk\twist1.png" />
+    <Content Include="resim\makine-resim\buyuk\twist2.png" />
+    <Content Include="resim\makine-resim\buyuk\twist3.png" />
+    <Content Include="resim\makine-resim\cncpress.png" />
+    <Content Include="resim\makine-resim\default-ana-resim.jpg" />
+    <Content Include="resim\makine-resim\delik-delme.jpg" />
+    <Content Include="resim\makine-resim\dik-firin.png" />
+    <Content Include="resim\makine-resim\doner-disk.png" />
+    <Content Include="resim\makine-resim\duble-makas.jpg" />
+    <Content Include="resim\makine-resim\elevtor.png" />
+    <Content Include="resim\makine-resim\enjeksiyon1.png" />
+    <Content Include="resim\makine-resim\enjeksiyon2.png" />
+    <Content Include="resim\makine-resim\kapak-besleyici.jpg" />
+    <Content Include="resim\makine-resim\kesme_makinesi.png" />
+    <Content Include="resim\makine-resim\kordon.png" />
+    <Content Include="resim\makine-resim\koseli-kapak-icin.jpg" />
+    <Content Include="resim\makine-resim\koseli.jpg" />
+    <Content Include="resim\makine-resim\kucuk\levhakesme2.png" />
+    <Content Include="resim\makine-resim\kucuk\paletizor.png" />
+    <Content Include="resim\makine-resim\kucuk\paletizor1.png" />
+    <Content Include="resim\makine-resim\kucuk\paletizor2.png" />
+    <Content Include="resim\makine-resim\kucuk\paletizor3.png" />
+    <Content Include="resim\makine-resim\kucuk\servo-1.jpg" />
+    <Content Include="resim\makine-resim\kucuk\servo-2.jpg" />
+    <Content Include="resim\makine-resim\kucuk\servo-3.jpg" />
+    <Content Include="resim\makine-resim\kucuk\servo-4.jpg" />
+    <Content Include="resim\makine-resim\kucuk\servo-5.jpg" />
+    <Content Include="resim\makine-resim\kucuk\servo-6.jpg" />
+    <Content Include="resim\makine-resim\kucuk\twist1.png" />
+    <Content Include="resim\makine-resim\kucuk\twist2.png" />
+    <Content Include="resim\makine-resim\kucuk\twist3.png" />
+    <Content Include="resim\makine-resim\levhakesme.png" />
+    <Content Include="resim\makine-resim\paletizor.png" />
+    <Content Include="resim\makine-resim\plastik-kalip1.jpg" />
+    <Content Include="resim\makine-resim\plastik-kalip2.jpg" />
+    <Content Include="resim\makine-resim\plastik-kalip3.jpg" />
+    <Content Include="resim\makine-resim\plastik-kalip4.jpg" />
+    <Content Include="resim\makine-resim\pll.png" />
+    <Content Include="resim\makine-resim\pll2.png" />
+    <Content Include="resim\makine-resim\punto.png" />
+    <Content Include="resim\makine-resim\puntolama.jpg" />
+    <Content Include="resim\makine-resim\r.jpg" />
+    <Content Include="resim\makine-resim\scroll.jpg" />
+    <Content Include="resim\makine-resim\twistana.png" />
+    <Content Include="resim\makine-resim\vakum-boksor.png" />
+    <Content Include="resim\makine-resim\yuksek-hizli.jpg" />
+    <Content Include="resim\marmara-iletisim.jpg" />
+    <Content Include="resim\marmara-soluk.png" />
+    <Content Include="resim\MarmaraL.png" />
+    <Content Include="resim\MarmaraLogoooo.png" />
+    <Content Include="resim\menu-arka.png" />
+    <Content Include="resim\menu-arka2.png" />
+    <Content Include="resim\menu-ikon.png" />
+    <Content Include="resim\pdf.png" />
+    <Content Include="resim\pdf2.png" />
+    <Content Include="resim\pdfler\katalog-yok-en.jpg" />
+    <Content Include="resim\pdfler\katalog-yok.jpg" />
+    <Content Include="resim\tel.png" />
+    <Content Include="resim\temp\2742013134613661.jpg" />
+    <Content Include="resim\test.jpg" />
+    <Content Include="resim\tr.png" />
+    <Content Include="resim\video.png" />
+    <Content Include="resim\video2.png" />
+    <Content Include="resim\yazdir.png" />
+    <Content Include="resim\yazdir2.png" />
+    <Content Include="resim\yer.png" />
+    <Content Include="videolar\egitim.mp4" />
+    <Content Include="yonetim\Basarili.aspx" />
+    <Content Include="yonetim\bilgi_sayfalari.aspx" />
+    <Content Include="yonetim\ckeditor\adapters\jquery.js" />
+    <Content Include="yonetim\ckeditor\CHANGES.html" />
+    <Content Include="yonetim\ckeditor\ckeditor.js" />
+    <Content Include="yonetim\ckeditor\ckeditor_basic.js" />
+    <Content Include="yonetim\ckeditor\config.js" />
+    <Content Include="yonetim\ckeditor\contents.css" />
+    <Content Include="yonetim\ckeditor\images\spacer.gif" />
+    <Content Include="yonetim\ckeditor\INSTALL.html" />
+    <Content Include="yonetim\ckeditor\lang\af.js" />
+    <Content Include="yonetim\ckeditor\lang\ar.js" />
+    <Content Include="yonetim\ckeditor\lang\bg.js" />
+    <Content Include="yonetim\ckeditor\lang\bn.js" />
+    <Content Include="yonetim\ckeditor\lang\bs.js" />
+    <Content Include="yonetim\ckeditor\lang\ca.js" />
+    <Content Include="yonetim\ckeditor\lang\cs.js" />
+    <Content Include="yonetim\ckeditor\lang\cy.js" />
+    <Content Include="yonetim\ckeditor\lang\da.js" />
+    <Content Include="yonetim\ckeditor\lang\de.js" />
+    <Content Include="yonetim\ckeditor\lang\el.js" />
+    <Content Include="yonetim\ckeditor\lang\en-au.js" />
+    <Content Include="yonetim\ckeditor\lang\en-ca.js" />
+    <Content Include="yonetim\ckeditor\lang\en-gb.js" />
+    <Content Include="yonetim\ckeditor\lang\en.js" />
+    <Content Include="yonetim\ckeditor\lang\eo.js" />
+    <Content Include="yonetim\ckeditor\lang\es.js" />
+    <Content Include="yonetim\ckeditor\lang\et.js" />
+    <Content Include="yonetim\ckeditor\lang\eu.js" />
+    <Content Include="yonetim\ckeditor\lang\fa.js" />
+    <Content Include="yonetim\ckeditor\lang\fi.js" />
+    <Content Include="yonetim\ckeditor\lang\fo.js" />
+    <Content Include="yonetim\ckeditor\lang\fr-ca.js" />
+    <Content Include="yonetim\ckeditor\lang\fr.js" />
+    <Content Include="yonetim\ckeditor\lang\gl.js" />
+    <Content Include="yonetim\ckeditor\lang\gu.js" />
+    <Content Include="yonetim\ckeditor\lang\he.js" />
+    <Content Include="yonetim\ckeditor\lang\hi.js" />
+    <Content Include="yonetim\ckeditor\lang\hr.js" />
+    <Content Include="yonetim\ckeditor\lang\hu.js" />
+    <Content Include="yonetim\ckeditor\lang\id.js" />
+    <Content Include="yonetim\ckeditor\lang\is.js" />
+    <Content Include="yonetim\ckeditor\lang\it.js" />
+    <Content Include="yonetim\ckeditor\lang\ja.js" />
+    <Content Include="yonetim\ckeditor\lang\ka.js" />
+    <Content Include="yonetim\ckeditor\lang\km.js" />
+    <Content Include="yonetim\ckeditor\lang\ko.js" />
+    <Content Include="yonetim\ckeditor\lang\lt.js" />
+    <Content Include="yonetim\ckeditor\lang\lv.js" />
+    <Content Include="yonetim\ckeditor\lang\mk.js" />
+    <Content Include="yonetim\ckeditor\lang\mn.js" />
+    <Content Include="yonetim\ckeditor\lang\ms.js" />
+    <Content Include="yonetim\ckeditor\lang\nb.js" />
+    <Content Include="yonetim\ckeditor\lang\nl.js" />
+    <Content Include="yonetim\ckeditor\lang\no.js" />
+    <Content Include="yonetim\ckeditor\lang\pl.js" />
+    <Content Include="yonetim\ckeditor\lang\pt-br.js" />
+    <Content Include="yonetim\ckeditor\lang\pt.js" />
+    <Content Include="yonetim\ckeditor\lang\ro.js" />
+    <Content Include="yonetim\ckeditor\lang\ru.js" />
+    <Content Include="yonetim\ckeditor\lang\sk.js" />
+    <Content Include="yonetim\ckeditor\lang\sl.js" />
+    <Content Include="yonetim\ckeditor\lang\sr-latn.js" />
+    <Content Include="yonetim\ckeditor\lang\sr.js" />
+    <Content Include="yonetim\ckeditor\lang\sv.js" />
+    <Content Include="yonetim\ckeditor\lang\th.js" />
+    <Content Include="yonetim\ckeditor\lang\tr.js" />
+    <Content Include="yonetim\ckeditor\lang\ug.js" />
+    <Content Include="yonetim\ckeditor\lang\uk.js" />
+    <Content Include="yonetim\ckeditor\lang\vi.js" />
+    <Content Include="yonetim\ckeditor\lang\zh-cn.js" />
+    <Content Include="yonetim\ckeditor\lang\zh.js" />
+    <Content Include="yonetim\ckeditor\lang\_languages.js" />
+    <Content Include="yonetim\ckeditor\lang\_translationstatus.txt" />
+    <Content Include="yonetim\ckeditor\LICENSE.html" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\cs.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\cy.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\da.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\de.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\el.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\en.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\eo.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\fa.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\fi.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\fr.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\gu.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\he.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\it.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\mk.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\nb.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\nl.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\no.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\pt-br.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\ro.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\tr.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\ug.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\vi.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\zh-cn.js" />
+    <Content Include="yonetim\ckeditor\plugins\a11yhelp\lang\_translationstatus.txt" />
+    <Content Include="yonetim\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="yonetim\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="yonetim\ckeditor\plugins\adobeair\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\ajax\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\autogrow\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\bbcode\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="yonetim\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\bg.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\cs.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\cy.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\da.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\de.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\el.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\en.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\eo.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\et.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\fa.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\fi.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\fr.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\gu.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\he.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\hr.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\it.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\nb.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\nl.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\no.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\pl.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\pt-br.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\tr.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\ug.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\uk.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\vi.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\zh-cn.js" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\lang\_translationstatus.txt" />
+    <Content Include="yonetim\ckeditor\plugins\devtools\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="yonetim\ckeditor\plugins\div\dialogs\div.js" />
+    <Content Include="yonetim\ckeditor\plugins\docprops\dialogs\docprops.js" />
+    <Content Include="yonetim\ckeditor\plugins\docprops\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\find\dialogs\find.js" />
+    <Content Include="yonetim\ckeditor\plugins\flash\dialogs\flash.js" />
+    <Content Include="yonetim\ckeditor\plugins\flash\images\placeholder.png" />
+    <Content Include="yonetim\ckeditor\plugins\forms\dialogs\button.js" />
+    <Content Include="yonetim\ckeditor\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="yonetim\ckeditor\plugins\forms\dialogs\form.js" />
+    <Content Include="yonetim\ckeditor\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="yonetim\ckeditor\plugins\forms\dialogs\radio.js" />
+    <Content Include="yonetim\ckeditor\plugins\forms\dialogs\select.js" />
+    <Content Include="yonetim\ckeditor\plugins\forms\dialogs\textarea.js" />
+    <Content Include="yonetim\ckeditor\plugins\forms\dialogs\textfield.js" />
+    <Content Include="yonetim\ckeditor\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="yonetim\ckeditor\plugins\iframedialog\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="yonetim\ckeditor\plugins\iframe\images\placeholder.png" />
+    <Content Include="yonetim\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="yonetim\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="yonetim\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="yonetim\ckeditor\plugins\link\images\anchor.gif" />
+    <Content Include="yonetim\ckeditor\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="yonetim\ckeditor\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="yonetim\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="yonetim\ckeditor\plugins\pastetext\dialogs\pastetext.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\dialogs\placeholder.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\bg.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\cs.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\cy.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\da.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\de.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\el.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\en.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\eo.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\et.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\fa.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\fi.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\fr.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\he.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\hr.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\it.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\nb.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\nl.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\no.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\pl.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\pt-br.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\tr.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\ug.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\uk.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\vi.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\zh-cn.js" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\lang\_translationstatus.txt" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\placeholder.gif" />
+    <Content Include="yonetim\ckeditor\plugins\placeholder\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\preview\preview.html" />
+    <Content Include="yonetim\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="yonetim\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_address.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_div.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_h1.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_h2.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_h3.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_h4.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_h5.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_h6.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_p.png" />
+    <Content Include="yonetim\ckeditor\plugins\showblocks\images\block_pre.png" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\envelope.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\heart.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\kiss.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\cs.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\cy.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\de.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\el.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\en.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\eo.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\et.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\fa.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\fi.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\fr.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\he.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\hr.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\it.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\nb.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\nl.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\no.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\pt-br.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\tr.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\ug.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\zh-cn.js" />
+    <Content Include="yonetim\ckeditor\plugins\specialchar\lang\_translationstatus.txt" />
+    <Content Include="yonetim\ckeditor\plugins\stylesheetparser\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\styles\styles\default.js" />
+    <Content Include="yonetim\ckeditor\plugins\tableresize\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="yonetim\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="yonetim\ckeditor\plugins\templates\dialogs\templates.js" />
+    <Content Include="yonetim\ckeditor\plugins\templates\templates\default.js" />
+    <Content Include="yonetim\ckeditor\plugins\templates\templates\images\template1.gif" />
+    <Content Include="yonetim\ckeditor\plugins\templates\templates\images\template2.gif" />
+    <Content Include="yonetim\ckeditor\plugins\templates\templates\images\template3.gif" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\dialogs\uicolor.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\bg.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\cs.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\cy.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\da.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\de.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\el.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\en.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\eo.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\et.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\fa.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\fi.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\fr.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\he.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\hr.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\it.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\mk.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\nb.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\nl.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\no.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\pl.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\pt-br.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\tr.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\ug.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\uk.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\vi.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\zh-cn.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\lang\_translationstatus.txt" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\plugin.js" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\uicolor.gif" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\yui\assets\hue_bg.png" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\yui\assets\hue_thumb.png" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\yui\assets\picker_mask.png" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\yui\assets\picker_thumb.png" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\yui\assets\yui.css" />
+    <Content Include="yonetim\ckeditor\plugins\uicolor\yui\yui.js" />
+    <Content Include="yonetim\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="yonetim\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="yonetim\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="yonetim\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="yonetim\ckeditor\plugins\xml\plugin.js" />
+    <Content Include="yonetim\ckeditor\skins\kama\dialog.css" />
+    <Content Include="yonetim\ckeditor\skins\kama\editor.css" />
+    <Content Include="yonetim\ckeditor\skins\kama\icons.png" />
+    <Content Include="yonetim\ckeditor\skins\kama\icons_rtl.png" />
+    <Content Include="yonetim\ckeditor\skins\kama\images\dialog_sides.gif" />
+    <Content Include="yonetim\ckeditor\skins\kama\images\dialog_sides.png" />
+    <Content Include="yonetim\ckeditor\skins\kama\images\dialog_sides_rtl.png" />
+    <Content Include="yonetim\ckeditor\skins\kama\images\mini.gif" />
+    <Content Include="yonetim\ckeditor\skins\kama\images\noimage.png" />
+    <Content Include="yonetim\ckeditor\skins\kama\images\sprites.png" />
+    <Content Include="yonetim\ckeditor\skins\kama\images\sprites_ie6.png" />
+    <Content Include="yonetim\ckeditor\skins\kama\images\toolbar_start.gif" />
+    <Content Include="yonetim\ckeditor\skins\kama\skin.js" />
+    <Content Include="yonetim\ckeditor\skins\kama\templates.css" />
+    <Content Include="yonetim\ckeditor\skins\office2003\dialog.css" />
+    <Content Include="yonetim\ckeditor\skins\office2003\editor.css" />
+    <Content Include="yonetim\ckeditor\skins\office2003\icons.png" />
+    <Content Include="yonetim\ckeditor\skins\office2003\icons_rtl.png" />
+    <Content Include="yonetim\ckeditor\skins\office2003\images\dialog_sides.gif" />
+    <Content Include="yonetim\ckeditor\skins\office2003\images\dialog_sides.png" />
+    <Content Include="yonetim\ckeditor\skins\office2003\images\dialog_sides_rtl.png" />
+    <Content Include="yonetim\ckeditor\skins\office2003\images\mini.gif" />
+    <Content Include="yonetim\ckeditor\skins\office2003\images\noimage.png" />
+    <Content Include="yonetim\ckeditor\skins\office2003\images\sprites.png" />
+    <Content Include="yonetim\ckeditor\skins\office2003\images\sprites_ie6.png" />
+    <Content Include="yonetim\ckeditor\skins\office2003\skin.js" />
+    <Content Include="yonetim\ckeditor\skins\office2003\templates.css" />
+    <Content Include="yonetim\ckeditor\skins\v2\dialog.css" />
+    <Content Include="yonetim\ckeditor\skins\v2\editor.css" />
+    <Content Include="yonetim\ckeditor\skins\v2\icons.png" />
+    <Content Include="yonetim\ckeditor\skins\v2\icons_rtl.png" />
+    <Content Include="yonetim\ckeditor\skins\v2\images\dialog_sides.gif" />
+    <Content Include="yonetim\ckeditor\skins\v2\images\dialog_sides.png" />
+    <Content Include="yonetim\ckeditor\skins\v2\images\dialog_sides_rtl.png" />
+    <Content Include="yonetim\ckeditor\skins\v2\images\mini.gif" />
+    <Content Include="yonetim\ckeditor\skins\v2\images\noimage.png" />
+    <Content Include="yonetim\ckeditor\skins\v2\images\sprites.png" />
+    <Content Include="yonetim\ckeditor\skins\v2\images\sprites_ie6.png" />
+    <Content Include="yonetim\ckeditor\skins\v2\images\toolbar_start.gif" />
+    <Content Include="yonetim\ckeditor\skins\v2\skin.js" />
+    <Content Include="yonetim\ckeditor\skins\v2\templates.css" />
+    <Content Include="yonetim\ckeditor\themes\default\theme.js" />
+    <Content Include="yonetim\images\loading.gif" />
+    <Content Include="yonetim\images\machine_small.png" />
+    <Content Include="yonetim\images\videoEgitim.png" />
+    <Content Include="yonetim\images\vidyo.png" />
+    <Content Include="yonetim\js\jquery.js" />
+    <Content Include="yonetim\js\multi.js" />
+    <Content Include="yonetim\mailBilgileri.aspx" />
+    <Content Include="yonetim\makineDuzenle.aspx" />
+    <Content Include="yonetim\makineDuzenle2.aspx" />
+    <Content Include="yonetim\makineEkle.aspx" />
+    <Content Include="yonetim\makineEkle2.aspx" />
+    <Content Include="yonetim\makineEkle3.aspx" />
+    <Content Include="yonetim\makineMultimedya.aspx" />
+    <Content Include="yonetim\makineMultimedyaKatalog.aspx" />
+    <Content Include="yonetim\makineMultimedyaResim.aspx" />
+    <Content Include="yonetim\makineMultimedyaSecim.aspx" />
+    <Content Include="yonetim\makineMultimedyaVideo.aspx" />
+    <Content Include="yonetim\makineSil.aspx" />
+    <Content Include="yonetim\raporlar.aspx" />
+    <Content Include="Search.aspx" />
+    <Content Include="SpryAssets\SpryEffects.js" />
+    <Content Include="videolar\1.MOV" />
+    <Content Include="videolar\conta.MOV" />
+    <Content Include="videolar\video-yok-en.jpg" />
+    <Content Include="videolar\video-yok.jpg" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="yonetim\Default.aspx" />
+    <Content Include="yonetim\css\960.css" />
+    <Content Include="yonetim\css\blue.css" />
+    <Content Include="yonetim\css\green.css" />
+    <Content Include="yonetim\css\lightview\lightview.css" />
+    <Content Include="yonetim\css\lightview\skins\blank.gif" />
+    <Content Include="yonetim\css\lightview\skins\dark\sprite.png" />
+    <Content Include="yonetim\css\lightview\skins\dark\sprite_ie_lt_7.png" />
+    <Content Include="yonetim\css\lightview\skins\light\sprite.png" />
+    <Content Include="yonetim\css\lightview\skins\light\sprite_ie_lt_7.png" />
+    <Content Include="yonetim\css\lightview\skins\mac\sprite.png" />
+    <Content Include="yonetim\css\lightview\skins\mac\sprite_ie_lt_7.png" />
+    <Content Include="yonetim\css\login.css" />
+    <Content Include="yonetim\css\red.css" />
+    <Content Include="yonetim\css\reset.css" />
+    <Content Include="yonetim\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="yonetim\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="yonetim\css\smoothness\ui.css" />
+    <Content Include="yonetim\css\text.css" />
+    <Content Include="yonetim\images\arrow_mini_down.gif" />
+    <Content Include="yonetim\images\bg.gif" />
+    <Content Include="yonetim\images\bg_content.gif" />
+    <Content Include="yonetim\images\bg_content_bottom.gif" />
+    <Content Include="yonetim\images\bg_header_blue.gif" />
+    <Content Include="yonetim\images\bg_header_green.gif" />
+    <Content Include="yonetim\images\bg_header_red.gif" />
+    <Content Include="yonetim\images\bg_login.gif" />
+    <Content Include="yonetim\images\bg_usertools_left.gif" />
+    <Content Include="yonetim\images\bg_usertools_right.gif" />
+    <Content Include="yonetim\images\bullet_blue.gif" />
+    <Content Include="yonetim\images\bullet_green.gif" />
+    <Content Include="yonetim\images\bullet_red.gif" />
+    <Content Include="yonetim\images\but_left_blue.gif" />
+    <Content Include="yonetim\images\but_left_green.gif" />
+    <Content Include="yonetim\images\but_left_grey.gif" />
+    <Content Include="yonetim\images\but_left_red.gif" />
+    <Content Include="yonetim\images\but_login_left.gif" />
+    <Content Include="yonetim\images\but_login_span.gif" />
+    <Content Include="yonetim\images\but_right_blue.gif" />
+    <Content Include="yonetim\images\but_right_green.gif" />
+    <Content Include="yonetim\images\but_right_grey.gif" />
+    <Content Include="yonetim\images\but_right_red.gif" />
+    <Content Include="yonetim\images\but_round_del_blue.gif" />
+    <Content Include="yonetim\images\but_round_del_green.gif" />
+    <Content Include="yonetim\images\but_round_del_red.gif" />
+    <Content Include="yonetim\images\but_round_left_grey.gif" />
+    <Content Include="yonetim\images\but_round_ok_blue.gif" />
+    <Content Include="yonetim\images\but_round_ok_green.gif" />
+    <Content Include="yonetim\images\but_round_ok_red.gif" />
+    <Content Include="yonetim\images\but_round_span_blue.gif" />
+    <Content Include="yonetim\images\but_round_span_green.gif" />
+    <Content Include="yonetim\images\but_round_span_grey.gif" />
+    <Content Include="yonetim\images\but_round_span_red.gif" />
+    <Content Include="yonetim\images\en.png" />
+    <Content Include="yonetim\images\forgot_bg_left.gif" />
+    <Content Include="yonetim\images\forgot_bg_span.gif" />
+    <Content Include="yonetim\images\icons\action_check.gif" />
+    <Content Include="yonetim\images\icons\action_delete.gif" />
+    <Content Include="yonetim\images\icons\action_remove.gif" />
+    <Content Include="yonetim\images\icons\calendar.gif" />
+    <Content Include="yonetim\images\icons\chart_bar.gif" />
+    <Content Include="yonetim\images\icons\comments.gif" />
+    <Content Include="yonetim\images\icons\edit.gif" />
+    <Content Include="yonetim\images\icons\exclamation.gif" />
+    <Content Include="yonetim\images\icons\feed.gif" />
+    <Content Include="yonetim\images\icons\lightbulb.gif" />
+    <Content Include="yonetim\images\icons\lightbulb_off.gif" />
+    <Content Include="yonetim\images\icons\user.gif" />
+    <Content Include="yonetim\images\icon_clock.png" />
+    <Content Include="yonetim\images\icon_content_small.gif" />
+    <Content Include="yonetim\images\icon_dashboard.png" />
+    <Content Include="yonetim\images\icon_dashboard_small.gif" />
+    <Content Include="yonetim\images\icon_edit.png" />
+    <Content Include="yonetim\images\icon_error.gif" />
+    <Content Include="yonetim\images\icon_info.gif" />
+    <Content Include="yonetim\images\icon_mail_small.gif" />
+    <Content Include="yonetim\images\icon_media.png" />
+    <Content Include="yonetim\images\icon_media_small.png" />
+    <Content Include="yonetim\images\icon_news.png" />
+    <Content Include="yonetim\images\icon_news_small.png" />
+    <Content Include="yonetim\images\icon_reports.png" />
+    <Content Include="yonetim\images\icon_settings.png" />
+    <Content Include="yonetim\images\icon_success.gif" />
+    <Content Include="yonetim\images\icon_users.png" />
+    <Content Include="yonetim\images\icon_warning.gif" />
+    <Content Include="yonetim\images\informationbar_right.gif" />
+    <Content Include="yonetim\images\Logo.png" />
+    <Content Include="yonetim\images\mail_small.png" />
+    <Content Include="yonetim\images\navigation_background_blue.gif" />
+    <Content Include="yonetim\images\navigation_background_green.gif" />
+    <Content Include="yonetim\images\navigation_background_red.gif" />
+    <Content Include="yonetim\images\navigation_first_blue.gif" />
+    <Content Include="yonetim\images\navigation_first_green.gif" />
+    <Content Include="yonetim\images\navigation_first_red.gif" />
+    <Content Include="yonetim\images\navigation_last_blue.gif" />
+    <Content Include="yonetim\images\navigation_last_green.gif" />
+    <Content Include="yonetim\images\navigation_last_red.gif" />
+    <Content Include="yonetim\images\report_small.png" />
+    <Content Include="yonetim\images\tabs_left.gif" />
+    <Content Include="yonetim\images\tabs_left_green.gif" />
+    <Content Include="yonetim\images\tabs_left_red.gif" />
+    <Content Include="yonetim\images\tabs_right.gif" />
+    <Content Include="yonetim\images\tabs_right_green.gif" />
+    <Content Include="yonetim\images\tabs_right_red.gif" />
+    <Content Include="yonetim\images\tr.png" />
+    <Content Include="yonetim\images\video1.png" />
+    <Content Include="yonetim\js\blend\jquery.blend.js" />
+    <Content Include="yonetim\js\effects.js" />
+    <Content Include="yonetim\js\flot\jquery.flot.pack.js" />
+    <Content Include="yonetim\js\graphs.js" />
+    <Content Include="yonetim\js\lightbox.js" />
+    <Content Include="yonetim\js\lightview\lightview.js" />
+    <Content Include="yonetim\js\prototype.js" />
+    <Content Include="yonetim\js\scriptaculous.js" />
+    <Content Include="yonetim\js\spinners\spinners.min.js" />
+    <Content Include="yonetim\js\ui.core.js" />
+    <Content Include="yonetim\js\ui.datepicker.js" />
+    <Content Include="yonetim\js\ui.dialog.js" />
+    <Content Include="yonetim\js\ui.sortable.js" />
+    <Content Include="yonetim\js\wysiwyg\jquery.wysiwyg.css" />
+    <Content Include="yonetim\js\wysiwyg\jquery.wysiwyg.gif" />
+    <Content Include="yonetim\js\wysiwyg\jquery.wysiwyg.js" />
+    <Content Include="yonetim\mesajlar.aspx" />
+    <Content Include="yonetim\sirket_bilgileri.aspx" />
+    <Content Include="yonetim\slaytlar.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Baglanti.cs" />
+    <Compile Include="Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Details2.aspx.cs">
+      <DependentUpon>Details2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Details2.aspx.designer.cs">
+      <DependentUpon>Details2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Information.aspx.cs">
+      <DependentUpon>Information.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Information.aspx.designer.cs">
+      <DependentUpon>Information.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Metotlar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Veriler.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Veriler.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\Basarili.aspx.cs">
+      <DependentUpon>Basarili.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\Basarili.aspx.designer.cs">
+      <DependentUpon>Basarili.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\bilgi_sayfalari.aspx.cs">
+      <DependentUpon>bilgi_sayfalari.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\bilgi_sayfalari.aspx.designer.cs">
+      <DependentUpon>bilgi_sayfalari.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\mailBilgileri.aspx.cs">
+      <DependentUpon>mailBilgileri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\mailBilgileri.aspx.designer.cs">
+      <DependentUpon>mailBilgileri.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineDuzenle.aspx.cs">
+      <DependentUpon>makineDuzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineDuzenle.aspx.designer.cs">
+      <DependentUpon>makineDuzenle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineDuzenle2.aspx.cs">
+      <DependentUpon>makineDuzenle2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineDuzenle2.aspx.designer.cs">
+      <DependentUpon>makineDuzenle2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineEkle.aspx.cs">
+      <DependentUpon>makineEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineEkle.aspx.designer.cs">
+      <DependentUpon>makineEkle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineEkle2.aspx.cs">
+      <DependentUpon>makineEkle2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineEkle2.aspx.designer.cs">
+      <DependentUpon>makineEkle2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineEkle3.aspx.cs">
+      <DependentUpon>makineEkle3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineEkle3.aspx.designer.cs">
+      <DependentUpon>makineEkle3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedya.aspx.cs">
+      <DependentUpon>makineMultimedya.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedya.aspx.designer.cs">
+      <DependentUpon>makineMultimedya.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedyaKatalog.aspx.cs">
+      <DependentUpon>makineMultimedyaKatalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedyaKatalog.aspx.designer.cs">
+      <DependentUpon>makineMultimedyaKatalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedyaResim.aspx.cs">
+      <DependentUpon>makineMultimedyaResim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedyaResim.aspx.designer.cs">
+      <DependentUpon>makineMultimedyaResim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedyaSecim.aspx.cs">
+      <DependentUpon>makineMultimedyaSecim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedyaSecim.aspx.designer.cs">
+      <DependentUpon>makineMultimedyaSecim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedyaVideo.aspx.cs">
+      <DependentUpon>makineMultimedyaVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineMultimedyaVideo.aspx.designer.cs">
+      <DependentUpon>makineMultimedyaVideo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\makineSil.aspx.cs">
+      <DependentUpon>makineSil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\makineSil.aspx.designer.cs">
+      <DependentUpon>makineSil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\raporlar.aspx.cs">
+      <DependentUpon>raporlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\raporlar.aspx.designer.cs">
+      <DependentUpon>raporlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\mesajlar.aspx.cs">
+      <DependentUpon>mesajlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\mesajlar.aspx.designer.cs">
+      <DependentUpon>mesajlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\sirket_bilgileri.aspx.cs">
+      <DependentUpon>sirket_bilgileri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\sirket_bilgileri.aspx.designer.cs">
+      <DependentUpon>sirket_bilgileri.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\slaytlar.aspx.cs">
+      <DependentUpon>slaytlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\slaytlar.aspx.designer.cs">
+      <DependentUpon>slaytlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\TeknikOzellikDuzenle.aspx.cs">
+      <DependentUpon>TeknikOzellikDuzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\TeknikOzellikDuzenle.aspx.designer.cs">
+      <DependentUpon>TeknikOzellikDuzenle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\Video.aspx.cs">
+      <DependentUpon>Video.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\Video.aspx.designer.cs">
+      <DependentUpon>Video.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data1\images\Thumbs.db" />
+    <None Include="data1\tooltips\Thumbs.db" />
+    <None Include="js\excanvas\LICENSE" />
+    <Content Include="marmaraMakina07_Mart_2019.bak" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <None Include="Properties\PublishProfiles\yeni.pubxml" />
+    <Content Include="yonetim\Admin.Master" />
+    <Content Include="Veriler.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Veriler.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="yonetim\ckeditor\.htaccess" />
+    <Content Include="yonetim\TeknikOzellikDuzenle.aspx" />
+    <Content Include="yonetim\Video.aspx" />
+    <Content Include="yonetim\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Veriler.dbml.layout">
+      <DependentUpon>Veriler.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60209</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

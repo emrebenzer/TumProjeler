@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4EEBDF94-8621-4713-BCEC-CCCAE6E92A7E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoldenReklamMVC</RootNamespace>
+    <AssemblyName>GoldenReklamMVC</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44320</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.2.9\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.9\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.9\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\animate.css" />
+    <Content Include="assets\css\animsition.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\fontawesome.css" />
+    <Content Include="assets\css\magnific-popup.css" />
+    <Content Include="assets\css\normalize.css" />
+    <Content Include="assets\css\plugins.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\swiper.css" />
+    <Content Include="assets\images\about\adult-bear-beautiful-792535.jpg" />
+    <Content Include="assets\images\about\adult-brainstorming-business-1437908.jpg" />
+    <Content Include="assets\images\about\apple-brainstorming-business-908288.jpg" />
+    <Content Include="assets\images\about\apple-computer-desk-159807.jpg" />
+    <Content Include="assets\images\about\hands-indoors-man-1204001.jpg" />
+    <Content Include="assets\images\avatars\adolescent-beautiful-beauty-247878.jpg" />
+    <Content Include="assets\images\avatars\adult-blur-brick-walls-846741.jpg" />
+    <Content Include="assets\images\avatars\attractive-background-beautiful-756453.jpg" />
+    <Content Include="assets\images\avatars\attractive-beautiful-beautiful-girl-1028927.jpg" />
+    <Content Include="assets\images\avatars\attractive-beautiful-beauty-1375849.jpg" />
+    <Content Include="assets\images\avatars\blue-boy-daylight-1205033.jpg" />
+    <Content Include="assets\images\avatars\casual-close-up-eyeglasses-1516680.jpg" />
+    <Content Include="assets\images\backgrounds\adolescent-adult-diversity-1034361.jpg" />
+    <Content Include="assets\images\backgrounds\art-artistic-artsy-1988681.jpg" />
+    <Content Include="assets\images\backgrounds\bald-casual-facial-hair-1708528.jpg" />
+    <Content Include="assets\images\backgrounds\bart-simpson-casual-close-up-1813947copy1.jpg" />
+    <Content Include="assets\images\backgrounds\baski.jpg" />
+    <Content Include="assets\images\backgrounds\beautiful-black-close-up-1689731.jpg" />
+    <Content Include="assets\images\backgrounds\business-calligraphy-chinese-lanterns-1455969.jpg" />
+    <Content Include="assets\images\backgrounds\camera-casual-fashion-2116503.jpg" />
+    <Content Include="assets\images\backgrounds\closed-eyes-concept-fashion-2035871.jpg" />
+    <Content Include="assets\images\backgrounds\double-exposure-2390185_1920.jpg" />
+    <Content Include="assets\images\backgrounds\fullscreen\adult-beautiful-woman-brunette-2177471.jpg" />
+    <Content Include="assets\images\backgrounds\fullscreen\attractive-beautiful-beauty-2123778.jpg" />
+    <Content Include="assets\images\backgrounds\fullscreen\black-and-white-face-model-getting-ready-1919235.jpg" />
+    <Content Include="assets\images\backgrounds\fullscreen\blur-blurred-background-close-up-2189907.jpg" />
+    <Content Include="assets\images\backgrounds\fullscreen\models-adult-casual-wear-2196688.jpg" />
+    <Content Include="assets\images\backgrounds\is_elbisesi.jpg" />
+    <Content Include="assets\images\backgrounds\pexels-photo-1287145.jpeg" />
+    <Content Include="assets\images\backgrounds\pexels-photo-1806031.jpeg" />
+    <Content Include="assets\images\backgrounds\tente.jpg" />
+    <Content Include="assets\images\backgrounds\tshirt.jpg" />
+    <Content Include="assets\images\blog\abstract-art-bright-682025.jpg" />
+    <Content Include="assets\images\blog\adult-art-artistic-1002237.jpg" />
+    <Content Include="assets\images\blog\aerial-shot-conceptual-couple-1781390.jpg" />
+    <Content Include="assets\images\blog\art-blooming-bouquet-1480523.jpg" />
+    <Content Include="assets\images\blog\art-blur-close-up-1826029.jpg" />
+    <Content Include="assets\images\blog\art-dark-ethnic-1038041.jpg" />
+    <Content Include="assets\images\blog\auditorium-lamps-lights-1649683.jpg" />
+    <Content Include="assets\images\blog\auto-automobile-automotive-358201.jpg" />
+    <Content Include="assets\images\blog\black-background-face-paint-group-2045035.jpg" />
+    <Content Include="assets\images\blog\bodypaint-female-girl-50595.jpg" />
+    <Content Include="assets\images\blog\fashion-fashion-models-female-1300571.jpg" />
+    <Content Include="assets\images\blog\pexels-photo-1057120.jpeg" />
+    <Content Include="assets\images\blog\pexels-photo-1280553.jpeg" />
+    <Content Include="assets\images\blog\pexels-photo-1334602.jpeg" />
+    <Content Include="assets\images\blog\pexels-photo-1670770.jpeg" />
+    <Content Include="assets\images\blog\pexels-photo-1707728.jpeg" />
+    <Content Include="assets\images\blog\pexels-photo-305250.jpeg" />
+    <Content Include="assets\images\blog\pexels-photo-348523.jpeg" />
+    <Content Include="assets\images\blog\pexels-photo-573298.jpeg" />
+    <Content Include="assets\images\blog\pexels-photo.jpg" />
+    <Content Include="assets\images\clients\alpiro.png" />
+    <Content Include="assets\images\clients\alpiro_hover.png" />
+    <Content Include="assets\images\clients\amerikankultur.png" />
+    <Content Include="assets\images\clients\amerikankultur_hover.png" />
+    <Content Include="assets\images\clients\bigmamas.png" />
+    <Content Include="assets\images\clients\bigmamas_hover.png" />
+    <Content Include="assets\images\clients\blutv.png" />
+    <Content Include="assets\images\clients\blutv_hover.png" />
+    <Content Include="assets\images\clients\caribou.png" />
+    <Content Include="assets\images\clients\caribou_hover.png" />
+    <Content Include="assets\images\clients\coke.png" />
+    <Content Include="assets\images\clients\coke_hover.png" />
+    <Content Include="assets\images\clients\digiturk.png" />
+    <Content Include="assets\images\clients\digiturk_hover.png" />
+    <Content Include="assets\images\clients\divan.png" />
+    <Content Include="assets\images\clients\divan_hover.png" />
+    <Content Include="assets\images\clients\greentous.png" />
+    <Content Include="assets\images\clients\greentous_hover.png" />
+    <Content Include="assets\images\clients\ibb.png" />
+    <Content Include="assets\images\clients\ibb_hover.png" />
+    <Content Include="assets\images\clients\pepsi.png" />
+    <Content Include="assets\images\clients\pepsi_hover.png" />
+    <Content Include="assets\images\clients\turkcell.png" />
+    <Content Include="assets\images\clients\turkcell_hover.png" />
+    <Content Include="assets\images\icons\ajax-loader.gif" />
+    <Content Include="assets\images\logo\Golden-Logo-last.png" />
+    <Content Include="assets\images\logo\Golden-Logo-Son-white.png" />
+    <Content Include="assets\images\logo\Golden-Logo-Son.png" />
+    <Content Include="assets\images\logo\GoldenReklamShare.jpg" />
+    <Content Include="assets\images\logo\logo-black.png" />
+    <Content Include="assets\images\logo\logo-loader.png" />
+    <Content Include="assets\images\logo\logo-white.png" />
+    <Content Include="assets\images\logo\whatsapp.png" />
+    <Content Include="assets\images\projects\1.jpg" />
+    <Content Include="assets\images\projects\adult-bulb-close-up-973506.jpg" />
+    <Content Include="assets\images\projects\air-aircraft-aviate-529598.jpg" />
+    <Content Include="assets\images\projects\audio-cassette-cassette-tape-1626481.jpg" />
+    <Content Include="assets\images\projects\baski.jpg" />
+    <Content Include="assets\images\projects\blades-footwear-hanging-914996.jpg" />
+    <Content Include="assets\images\projects\blur-close-up-equipment-1034651.jpg" />
+    <Content Include="assets\images\projects\buttons-console-dark-1637438.jpg" />
+    <Content Include="assets\images\projects\canta.jpg" />
+    <Content Include="assets\images\projects\cardak.jpg" />
+    <Content Include="assets\images\projects\chocolate-delicious-dessert-890500.jpg" />
+    <Content Include="assets\images\projects\close-up-computer-control-1579240.jpg" />
+    <Content Include="assets\images\projects\full_screen_slider\abandoned-architecture-building-2096610.jpg" />
+    <Content Include="assets\images\projects\full_screen_slider\action-adult-daylight-683241.jpg" />
+    <Content Include="assets\images\projects\full_screen_slider\action-balance-jumping-2020157.jpg" />
+    <Content Include="assets\images\projects\full_screen_slider\architecture-building-low-angle-shot-2075059.jpg" />
+    <Content Include="assets\images\projects\full_screen_slider\art-artwork-black-1893536.jpg" />
+    <Content Include="assets\images\projects\full_screen_slider\art-black-background-bone-1918290.jpg" />
+    <Content Include="assets\images\projects\full_screen_slider\beautiful-costume-mask-2058816.jpg" />
+    <Content Include="assets\images\projects\full_screen_slider\chair-contemporary-cushions-1439965.jpg" />
+    <Content Include="assets\images\projects\full_screen_slider\classic-colouful-footwear-2044088.jpg" />
+    <Content Include="assets\images\projects\grid\1.jpg" />
+    <Content Include="assets\images\projects\grid\2.jpg" />
+    <Content Include="assets\images\projects\grid\3.jpg" />
+    <Content Include="assets\images\projects\grid\4.jpg" />
+    <Content Include="assets\images\projects\grid\5.jpg" />
+    <Content Include="assets\images\projects\grid\6.jpg" />
+    <Content Include="assets\images\projects\grid\7.jpg" />
+    <Content Include="assets\images\projects\grid\8.jpg" />
+    <Content Include="assets\images\projects\grid\9.jpg" />
+    <Content Include="assets\images\projects\is_kiyafeti.jpg" />
+    <Content Include="assets\images\projects\minder.jpg" />
+    <Content Include="assets\images\projects\pexels-photo-109003.jpeg" />
+    <Content Include="assets\images\projects\pexels-photo-1093236.jpeg" />
+    <Content Include="assets\images\projects\pexels-photo-1762539.jpeg" />
+    <Content Include="assets\images\projects\pexels-photo-257699.jpeg" />
+    <Content Include="assets\images\projects\pexels-photo-544491.jpeg" />
+    <Content Include="assets\images\projects\pexels-photo-688988.jpeg" />
+    <Content Include="assets\images\projects\pexels-photo-724921.jpeg" />
+    <Content Include="assets\images\projects\pexels-photo-916015.jpeg" />
+    <Content Include="assets\images\projects\promosyon.jpg" />
+    <Content Include="assets\images\projects\sapka.jpg" />
+    <Content Include="assets\images\projects\semsiye.jpg" />
+    <Content Include="assets\images\projects\slider\abandoned-architecture-building-2096610.jpg" />
+    <Content Include="assets\images\projects\slider\action-adult-daylight-683241.jpg" />
+    <Content Include="assets\images\projects\slider\action-balance-jumping-2020157.jpg" />
+    <Content Include="assets\images\projects\slider\ajanda.jpg" />
+    <Content Include="assets\images\projects\slider\architecture-building-low-angle-shot-2075059.jpg" />
+    <Content Include="assets\images\projects\slider\art-artwork-black-1893536.jpg" />
+    <Content Include="assets\images\projects\slider\art-black-background-bone-1918290.jpg" />
+    <Content Include="assets\images\projects\slider\baski.jpg" />
+    <Content Include="assets\images\projects\slider\baski2.jpg" />
+    <Content Include="assets\images\projects\slider\baski3.jpg" />
+    <Content Include="assets\images\projects\slider\beautiful-costume-mask-2058816.jpg" />
+    <Content Include="assets\images\projects\slider\canta.jpg" />
+    <Content Include="assets\images\projects\slider\canta10.jpg" />
+    <Content Include="assets\images\projects\slider\canta11.jpg" />
+    <Content Include="assets\images\projects\slider\canta12.jpg" />
+    <Content Include="assets\images\projects\slider\canta2.jpg" />
+    <Content Include="assets\images\projects\slider\canta3.jpg" />
+    <Content Include="assets\images\projects\slider\canta4.jpg" />
+    <Content Include="assets\images\projects\slider\canta5.jpg" />
+    <Content Include="assets\images\projects\slider\canta6.jpg" />
+    <Content Include="assets\images\projects\slider\canta7.jpg" />
+    <Content Include="assets\images\projects\slider\canta8.jpg" />
+    <Content Include="assets\images\projects\slider\canta9.jpg" />
+    <Content Include="assets\images\projects\slider\cardak.jpg" />
+    <Content Include="assets\images\projects\slider\chair-contemporary-cushions-1439965.jpg" />
+    <Content Include="assets\images\projects\slider\classic-colouful-footwear-2044088.jpg" />
+    <Content Include="assets\images\projects\slider\diger_baski2.jpg" />
+    <Content Include="assets\images\projects\slider\diger_baski3.jpg" />
+    <Content Include="assets\images\projects\slider\diger_baski4.jpg" />
+    <Content Include="assets\images\projects\slider\diger_baski5.jpg" />
+    <Content Include="assets\images\projects\slider\diger_baski6.jpg" />
+    <Content Include="assets\images\projects\slider\diger_baski7.jpg" />
+    <Content Include="assets\images\projects\slider\diger_baski8.jpg" />
+    <Content Include="assets\images\projects\slider\gazebo.jpg" />
+    <Content Include="assets\images\projects\slider\gazebo2.jpg" />
+    <Content Include="assets\images\projects\slider\gazebo3.jpg" />
+    <Content Include="assets\images\projects\slider\gazebo4.jpg" />
+    <Content Include="assets\images\projects\slider\gazebo5.jpg" />
+    <Content Include="assets\images\projects\slider\gazebo6.jpg" />
+    <Content Include="assets\images\projects\slider\gazebo7.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti10.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti11.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti12.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti13.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti2.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti3.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti4.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti5.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti6.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti7.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti8.jpg" />
+    <Content Include="assets\images\projects\slider\is_kiyafeti9.jpg" />
+    <Content Include="assets\images\projects\slider\minder.jpg" />
+    <Content Include="assets\images\projects\slider\minder10.jpg" />
+    <Content Include="assets\images\projects\slider\minder11.jpg" />
+    <Content Include="assets\images\projects\slider\minder2.jpg" />
+    <Content Include="assets\images\projects\slider\minder3.jpg" />
+    <Content Include="assets\images\projects\slider\minder34.jpg" />
+    <Content Include="assets\images\projects\slider\minder5.jpg" />
+    <Content Include="assets\images\projects\slider\minder6.jpg" />
+    <Content Include="assets\images\projects\slider\minder7.jpg" />
+    <Content Include="assets\images\projects\slider\minder8.jpg" />
+    <Content Include="assets\images\projects\slider\minder9.jpg" />
+    <Content Include="assets\images\projects\slider\onluk.jpg" />
+    <Content Include="assets\images\projects\slider\sapka.jpg" />
+    <Content Include="assets\images\projects\slider\sapka2.jpg" />
+    <Content Include="assets\images\projects\slider\sapka3.jpg" />
+    <Content Include="assets\images\projects\slider\sapka4.jpg" />
+    <Content Include="assets\images\projects\slider\sapka5.jpg" />
+    <Content Include="assets\images\projects\slider\sapka6.jpg" />
+    <Content Include="assets\images\projects\slider\sapka7.jpg" />
+    <Content Include="assets\images\projects\slider\sapka8.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye1.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye10.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye11.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye12.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye13.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye14.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye15.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye16.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye17.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye18.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye19.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye2.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye20.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye21.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye22.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye23.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye24.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye2_2.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye3.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye4.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye45.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye5.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye6.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye7.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye8.jpg" />
+    <Content Include="assets\images\projects\slider\semsiye9.jpg" />
+    <Content Include="assets\images\projects\slider\Tente.jpeg" />
+    <Content Include="assets\images\projects\slider\tente10.jpg" />
+    <Content Include="assets\images\projects\slider\tente2.jpg" />
+    <Content Include="assets\images\projects\slider\tente3.jpg" />
+    <Content Include="assets\images\projects\slider\tente4.jpg" />
+    <Content Include="assets\images\projects\slider\tente5.jpg" />
+    <Content Include="assets\images\projects\slider\tente6.jpg" />
+    <Content Include="assets\images\projects\slider\tente7.jpg" />
+    <Content Include="assets\images\projects\slider\tente8.jpg" />
+    <Content Include="assets\images\projects\slider\tente9.jpg" />
+    <Content Include="assets\images\projects\slider\tshirt.jpg" />
+    <Content Include="assets\images\projects\slider\tshirt2.jpg" />
+    <Content Include="assets\images\projects\slider\tshirt3.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt10.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt11.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt12.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt13.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt14.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt15.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt16.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt17.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt18.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt19.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt20.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt21.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt4.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt5.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt6.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt7.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt8.jpg" />
+    <Content Include="assets\images\projects\slider\tsihrt9.jpg" />
+    <Content Include="assets\images\projects\tente4.jpg" />
+    <Content Include="assets\images\projects\tenteler.jpeg" />
+    <Content Include="assets\images\projects\tshirt.jpg" />
+    <Content Include="assets\images\services\achievement-brainstorming-branding-1162968.jpg" />
+    <Content Include="assets\images\services\action-asia-blur-1455989.jpg" />
+    <Content Include="assets\images\services\action-plan-brainstorming-complex-212286.jpg" />
+    <Content Include="assets\images\services\american-casual-cellphone-1262971.jpg" />
+    <Content Include="assets\images\services\analysis-analytics-application-590016.jpg" />
+    <Content Include="assets\images\services\analysis-business-businesswoman-955447.jpg" />
+    <Content Include="assets\images\services\analysis-business-coffee-1549702.jpg" />
+    <Content Include="assets\images\services\apple-books-computers-115655.jpg" />
+    <Content Include="assets\images\services\beautiful-brainstorming-business-1136757.jpg" />
+    <Content Include="assets\images\services\business-business-people-calendar-1187439.jpg" />
+    <Content Include="assets\images\team\1.jpg" />
+    <Content Include="assets\images\team\2.jpg" />
+    <Content Include="assets\images\team\3.jpg" />
+    <Content Include="assets\images\team\4.jpg" />
+    <Content Include="assets\images\team\5.jpg" />
+    <Content Include="assets\images\testimonials\adult-beanie-black-background-1529350.jpg" />
+    <Content Include="assets\images\testimonials\pexels-photo-428340.jpeg" />
+    <Content Include="assets\images\testimonials\pexels-photo-764529.jpeg" />
+    <Content Include="assets\images\testimonials\pexels-photo-809433.jpeg" />
+    <Content Include="assets\images\testimonials\pexels-photo-894156.jpeg" />
+    <Content Include="assets\js\animsition.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\core.js" />
+    <Content Include="assets\js\footer-reveal.js" />
+    <Content Include="assets\js\Headroom.js" />
+    <Content Include="assets\js\isotope.js" />
+    <Content Include="assets\js\jquery-ui.min.js" />
+    <Content Include="assets\js\jQuery.headroom.js" />
+    <Content Include="assets\js\jquery.magnific-popup.js" />
+    <Content Include="assets\js\jquery.malihu.PageScroll2id.js" />
+    <Content Include="assets\js\jQuery2.2.0.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\midnight.jquery.js" />
+    <Content Include="assets\js\owl.carousel.min.js" />
+    <Content Include="assets\js\particles.js" />
+    <Content Include="assets\js\particles_init.js" />
+    <Content Include="assets\js\plugins.js" />
+    <Content Include="assets\js\ScrollAnimations.js" />
+    <Content Include="assets\js\swiper.js" />
+    <Content Include="assets\js\typewriter.js" />
+    <Content Include="assets\js\wavesurfer.min.js" />
+    <Content Include="assets\webfonts\fa-brands-400.svg" />
+    <Content Include="assets\webfonts\fa-regular-400.svg" />
+    <Content Include="assets\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="assets\.DS_Store" />
+    <Content Include="assets\css\.DS_Store" />
+    <Content Include="assets\images\.DS_Store" />
+    <Content Include="assets\images\about\.DS_Store" />
+    <Content Include="assets\images\avatars\.DS_Store" />
+    <Content Include="assets\images\backgrounds\.DS_Store" />
+    <Content Include="assets\images\backgrounds\fullscreen\.DS_Store" />
+    <Content Include="assets\images\blog\.DS_Store" />
+    <Content Include="assets\images\clients\.DS_Store" />
+    <Content Include="assets\images\logo\.DS_Store" />
+    <Content Include="assets\images\projects\.DS_Store" />
+    <Content Include="assets\images\projects\full_screen_slider\.DS_Store" />
+    <Content Include="assets\images\projects\grid\.DS_Store" />
+    <Content Include="assets\images\projects\slider\.DS_Store" />
+    <Content Include="assets\images\services\.DS_Store" />
+    <Content Include="assets\images\team\.DS_Store" />
+    <Content Include="assets\images\testimonials\.DS_Store" />
+    <Content Include="assets\js\.DS_Store" />
+    <Content Include="assets\js\swiper.min.js.map" />
+    <Content Include="assets\webfonts\.DS_Store" />
+    <Content Include="assets\webfonts\fa-brands-400.eot" />
+    <Content Include="assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="assets\webfonts\fa-brands-400.woff" />
+    <Content Include="assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="assets\webfonts\fa-regular-400.eot" />
+    <Content Include="assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="assets\webfonts\fa-regular-400.woff" />
+    <Content Include="assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="assets\webfonts\fa-solid-900.eot" />
+    <Content Include="assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="assets\webfonts\fa-solid-900.woff" />
+    <Content Include="assets\webfonts\fa-solid-900.woff2" />
+    <Content Include="assets\css\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="sitemap.xml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\hizmetlerimiz.cshtml" />
+    <Content Include="Views\Home\iletisim.cshtml" />
+    <Content Include="Views\Home\baski_teknikleri.cshtml" />
+    <Content Include="Views\Home\hakkimizda.cshtml" />
+    <Content Include="Views\Home\tisort_baski.cshtml" />
+    <Content Include="Views\Home\semsiye_baski.cshtml" />
+    <Content Include="Views\Home\tente_baski.cshtml" />
+    <Content Include="Views\Home\minder_baski.cshtml" />
+    <Content Include="Views\Home\sapka_baski.cshtml" />
+    <Content Include="Views\Home\canta_baski.cshtml" />
+    <Content Include="Views\Home\is_elbiseleri_baski.cshtml" />
+    <Content Include="Views\Home\promosyon_ajanda_baski.cshtml" />
+    <Content Include="Views\Home\cardak_cadir_gazebo_baski.cshtml" />
+    <Content Include="Views\Home\diger_baski.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55314</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44320/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
